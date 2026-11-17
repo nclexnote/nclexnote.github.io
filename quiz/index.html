@@ -15,6 +15,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="귀로 듣는 엔클렉스 노트">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"엔클렉스(NCLEX) 무료 문제 20문항 | 한국어 해설","description":"엔클렉스 무료 연습 문제 20문항. 가입 없이 풀고 한국어 해설과 1초 암기까지 확인해요.","url":"https://rnworld.kr/quiz/","inLanguage":"ko","isAccessibleForFree":true,"author":{"@type":"Person","name":"해랑쌤"}}</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="da424e0e-cb8e-4b82-b3e0-ac208da6cc70" data-domains="rnworld.kr" data-do-not-track="true"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -157,6 +159,7 @@ footer{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padd
     <span>모든 문제는 직접 만든 연습 문제이고, 공식 NCLEX 문제나 시험 후기(복기) 문장이 아니에요. 점수는 복습용이며 합격 가능성을 뜻하지 않아요.</span>
     <span>해설은 시험 공부용으로 줄여 쓴 것이에요. 실제 간호 현장에서는 처방과 기관 지침을 따라요.</span>
     <span>푼 기록은 이 기기의 이 브라우저에만 남아요. 카카오톡 안에서 연 화면과 바깥 브라우저는 기록이 따로예요.</span>
+    <span>방문 통계 안내: 페이지를 고치는 데 쓰려고 Umami(우마미)라는 도구로 방문 수, 어디서 들어왔는지, 단추를 누른 횟수만 세요. 쿠키를 쓰지 않고, 이름·연락처·고른 답·점수는 보내지 않아요. 통계는 Umami의 미국 서버에 최대 6개월 보관돼요.</span>
     <span>틀린 곳을 찾으면 알려 주세요 — 직접 운영하는 무료 카카오톡 공부방 <a href="https://open.kakao.com/o/gJbIrbXi">open.kakao.com/o/gJbIrbXi</a></span>
     <span>블로그 <a href="https://blog.naver.com/nclexnote">blog.naver.com/nclexnote</a> · 문제 확인 2026-11-16 · 제휴 없이 운영해요.</span>
   </footer>
@@ -177,6 +180,8 @@ const D={"Q": [{"no": "001", "sub": "관리", "t": "엘리베이터에서 환자
 const S="https://youtube.com/shorts/", B="https://blog.naver.com/nclexnote/";
 const Q=D.Q, SETS=D.SETS, byNo={}; Q.forEach(x=>byNo[x.no]=x);
 const KEY="haerang-quiz-v2";
+// 방문 통계(Umami): 사건 이름만 보내요. 답·점수·문제 번호는 보내지 않아요
+function tk(n){ try{ if(window.umami&&umami.track) umami.track(n); }catch(e){} }
 // 저장된 기록은 모양과 값의 범위를 확인한 것만 받아요
 function clean(s){
   const o={ans:{},star:{},ord:{},fs:18,lang:"ko"}; if(!s||typeof s!=="object"||Array.isArray(s)) return o;
@@ -221,9 +226,10 @@ function home(){
   filter(); show("home");
 }
 function startSet(s){ const list=SETS[s], again=list.every(isDone);
+  if(again||!list.some(isDone)) tk("quiz_start");
   if(again){ list.forEach(n=>{delete st.ord[n];}); save(); }
   run={list:list.slice(),i:again?0:Math.max(0,list.findIndex(n=>!isDone(n))),label:`묶음 ${s}`+(again?" · 다시 풀기":""),setNo:s,re:again?{}:null}; enter(); play(); }
-function startReview(nos,label){ nos.forEach(n=>{delete st.ord[n];}); save(); run={list:nos.slice(),i:0,label:label,setNo:0,re:{}}; enter(); play(); }
+function startReview(nos,label){ tk("retry_wrong"); nos.forEach(n=>{delete st.ord[n];}); save(); run={list:nos.slice(),i:0,label:label,setNo:0,re:{}}; enter(); play(); }
 function play(keep){
   const n=run.list[run.i], x=byNo[n], a=rAns(n), done=a!==undefined, ok=done&&a===x.a, en=st.lang==="en", ord=order(n);
   document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===st.lang));
@@ -244,7 +250,7 @@ function play(keep){
   if(!keep){ try{$("stem").focus({preventScroll:true});}catch(e){} }
 }
 $("card").addEventListener("click",e=>{const o=e.target.closest(".opt"); if(o&&!o.disabled){ const n=run.list[run.i], v=+o.dataset.i; if(run.re) run.re[n]=v; st.ans[n]=v; save(); play(true); const ex=document.querySelector(".exp"); if(ex&&ex.scrollIntoView) ex.scrollIntoView({block:"nearest"});}});
-$("nextBtn").onclick=()=>{ const j=run.list.findIndex((n,k)=>k>run.i&&!rDone(n)); if(j>=0){run.i=j; play();} else setResult(); };
+$("nextBtn").onclick=()=>{ const j=run.list.findIndex((n,k)=>k>run.i&&!rDone(n)); if(j>=0){run.i=j; play();} else { if(run.setNo) tk("quiz_complete"); setResult(); } };
 $("homeBtn").onclick=leave;
 document.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>{st.lang=b.dataset.lang; save(); play(true);});
 // 결과의 "다시 볼 문제": 누르면 정답과 해설이 펼쳐져요
@@ -296,6 +302,7 @@ $("resetBtn").onclick=()=>{ const b=$("resetBtn"), m=$("resetMsg");
   if(rz&&Date.now()-rz<6000){ rz=0; st.ans={}; st.star={}; st.ord={}; save(); home(); b.textContent="푼 기록 지우기"; m.textContent="기록을 지웠어요."; }
   else{ rz=Date.now(); b.textContent="한 번 더 누르면 지워요"; m.textContent="푼 답과 ★ 표시가 모두 지워지고 되돌릴 수 없어요.";
     setTimeout(()=>{ if(rz&&Date.now()-rz>=6000){ rz=0; b.textContent="푼 기록 지우기"; m.textContent=""; } },6200); } };
+document.addEventListener("click",e=>{ const a=e.target.closest&&e.target.closest("a[href]"); if(a&&a.href.indexOf(B)===0) tk("blog_click"); });
 home();
 </script>
 </body>
