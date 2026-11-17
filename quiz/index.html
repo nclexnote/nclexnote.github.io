@@ -99,6 +99,11 @@ input[type=search]{flex:1;min-width:160px;min-height:44px;font:inherit;padding:1
 .note{font-size:.9rem;color:var(--muted);margin:0}
 .warn{font-size:.9rem;margin:0;padding:10px 12px;border:1.5px solid var(--bad);border-radius:8px;background:var(--bad-bg)}
 footer{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+footer details>summary{cursor:pointer;min-height:44px;padding:8px 0;text-decoration:underline;list-style:none}
+footer details>summary::-webkit-details-marker{display:none}
+footer details>summary::before{content:"\25B8 "}
+footer details[open]>summary::before{content:"\25BE "}
+footer .moreb{display:flex;flex-direction:column;gap:6px;padding:2px 0 8px}
 @media (prefers-reduced-motion: reduce){.bar i{transition:none}}
 </style>
 </head>
@@ -145,23 +150,20 @@ footer{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padd
 <details class="it" data-no="010" data-sub="약물"><summary><span class="num">#010</span><span class="sub">약물</span><span class="st">인슐린 섞어 뽑기</span></summary><div class="itb"><p class="stem">레귤러 인슐린 6단위와 NPH 인슐린 14단위를 한 주사기에 뽑아야 해요. 뽑는 순서는?</p><p class="en" lang="en">A client is to receive regular insulin 6 units and NPH insulin 14 units in one syringe. In what order should the nurse draw up the insulin?</p><ol><li>NPH 먼저, 그다음 레귤러 — 레귤러 병이 NPH로 오염될 수 있음</li><li>어느 순서든 괜찮다 — 순서가 중요함</li><li>두 인슐린은 절대 섞으면 안 된다 — 이 두 인슐린은 섞을 수 있음</li><li class="ans">레귤러 먼저, 그다음 NPH — 정답</li></ol><p>맑은 레귤러를 먼저 뽑아야 흐린 NPH가 레귤러 병에 섞여 들어가는 걸 막을 수 있어요. 레귤러와 NPH는 한 주사기에 섞어도 되는 조합이에요.</p><p class="memo">1초 암기: Clear before cloudy — 맑은 게 먼저!</p><p><a href="https://youtube.com/shorts/FXGubGC98Is">1분 영상으로 보기</a> · <a href="https://blog.naver.com/nclexnote/224457159987">블로그 글: 인슐린·혈압약·이뇨제</a></p></div></details>
 <details class="it" data-no="007" data-sub="신생아"><summary><span class="num">#007</span><span class="sub">신생아</span><span class="st">광선치료</span></summary><div class="itb"><p class="stem">고빌리루빈혈증으로 광선치료를 시작하는 신생아예요. 가장 먼저 할 일은?</p><p class="en" lang="en">A newborn is placed under phototherapy for hyperbilirubinemia. Which action should the nurse take first?</p><ol><li class="ans">눈 보호대로 눈을 가린다 — 정답</li><li>온몸을 덮는 옷을 입힌다 — 빛이 피부에 닿지 않아 치료 효과 없음</li><li>피부 보호를 위해 로션을 바른다 — 빛을 받으면 피부 화상 위험</li><li>대변을 줄이려고 수유를 줄인다 — 오히려 자주 먹여야 빌리루빈이 대변으로 빠짐</li></ol><p>광선치료 불빛은 아기 눈의 망막을 손상시킬 수 있어요. 빛을 켜기 전에 눈 보호대부터 씌우고, 피부는 빛을 최대한 받도록 기저귀 정도만 채워요.</p><p class="memo">1초 암기: 빛 켜기 전에 눈 가리개 먼저!</p><p><a href="https://youtube.com/shorts/xN5WdhFjNqk">1분 영상으로 보기</a> · <a href="https://blog.naver.com/nclexnote/224461532681">블로그 글: 신생아 간호</a></p></div></details>
   </div>
-  <h2>자주 묻는 질문</h2>
-  <section class="box faq" aria-label="자주 묻는 질문">
-    <p><b>무료인가요?</b>네. 가입 없이 20문항을 무료로 풀 수 있어요.</p>
-    <p><b>실제 시험 문제인가요?</b>아니요. 해랑쌤이 직접 만든 연습 문제이고, 공식 NCLEX 문제나 시험 후기(복기) 문장을 쓰지 않았어요.</p>
-    <p><b>영어로도 풀 수 있나요?</b>네. 문제와 보기는 한글·영어로 바꿔 볼 수 있고, 해설은 한국어예요.</p>
-  </section>
   <div class="tools">
     <div class="row sp"><span class="note" id="resetMsg" role="status" aria-live="polite"></span>
       <button type="button" class="link" id="resetBtn">푼 기록 지우기</button></div>
   </div>
   <footer>
-    <span>모든 문제는 직접 만든 연습 문제이고, 공식 NCLEX 문제나 시험 후기(복기) 문장이 아니에요. 점수는 복습용이며 합격 가능성을 뜻하지 않아요.</span>
-    <span>해설은 시험 공부용으로 줄여 쓴 것이에요. 실제 간호 현장에서는 처방과 기관 지침을 따라요.</span>
-    <span>푼 기록은 이 기기의 이 브라우저에만 남아요. 카카오톡 안에서 연 화면과 바깥 브라우저는 기록이 따로예요.</span>
-    <span>방문 통계 안내: 페이지를 고치는 데 쓰려고 Umami(우마미)라는 도구로 방문 수, 어디서 들어왔는지, 단추를 누른 횟수만 세요. 쿠키를 쓰지 않고, 이름·연락처·고른 답·점수는 보내지 않아요. 통계는 Umami의 미국 서버에 최대 6개월 보관돼요.</span>
-    <span>틀린 곳을 찾으면 알려 주세요 — 직접 운영하는 무료 카카오톡 공부방 <a href="https://open.kakao.com/o/gJbIrbXi">open.kakao.com/o/gJbIrbXi</a></span>
-    <span>블로그 <a href="https://blog.naver.com/nclexnote">blog.naver.com/nclexnote</a> · 문제 확인 2026-11-16 · 제휴 없이 운영해요.</span>
+    <details>
+      <summary>자세히 보기</summary>
+      <div class="moreb">
+        <span>점수는 복습용이에요. 해설은 공부용으로 줄여 쓴 것이고, 현장에서는 처방과 기관 지침을 따라요.</span>
+        <span>푼 기록은 이 브라우저에만 남아요(카카오톡 안 화면과 바깥 브라우저는 따로).</span>
+        <span>방문 통계: 방문 수와 단추를 누른 횟수만 Umami로 세요. 쿠키 없음 · 이름·고른 답·점수는 보내지 않아요 · 미국 서버에 최대 6개월 보관.</span>
+      </div>
+    </details>
+    <span>틀린 곳은 <a href="https://open.kakao.com/o/gJbIrbXi">카카오톡 공부방</a>으로 · <a href="https://blog.naver.com/nclexnote">블로그</a> · <a href="https://www.youtube.com/@%EA%B7%80%EB%A1%9C%EB%93%A3%EB%8A%94%EC%97%94%ED%81%B4%EB%A0%89%EC%8A%A4">유튜브</a> · 문제 확인 2026-11-16 · 제휴 없음</span>
   </footer>
 </div>
 
