@@ -99,6 +99,11 @@ input[type=search]{flex:1;min-width:160px;min-height:44px;font:inherit;padding:1
 .note{font-size:.9rem;color:var(--muted);margin:0}
 .warn{font-size:.9rem;margin:0;padding:10px 12px;border:1.5px solid var(--bad);border-radius:8px;background:var(--bad-bg)}
 footer{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+footer details>summary{cursor:pointer;min-height:44px;padding:8px 0;text-decoration:underline;list-style:none}
+footer details>summary::-webkit-details-marker{display:none}
+footer details>summary::before{content:"\25B8 "}
+footer details[open]>summary::before{content:"\25BE "}
+footer .moreb{display:flex;flex-direction:column;gap:6px;padding:2px 0 8px}
 @media (prefers-reduced-motion: reduce){.bar i{transition:none}}
 </style>
 </head>
@@ -156,12 +161,16 @@ footer{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padd
       <button type="button" class="link" id="resetBtn">푼 기록 지우기</button></div>
   </div>
   <footer>
-    <span>모든 문제는 직접 만든 연습 문제이고, 공식 NCLEX 문제나 시험 후기(복기) 문장이 아니에요. 점수는 복습용이며 합격 가능성을 뜻하지 않아요.</span>
-    <span>해설은 시험 공부용으로 줄여 쓴 것이에요. 실제 간호 현장에서는 처방과 기관 지침을 따라요.</span>
-    <span>푼 기록은 이 기기의 이 브라우저에만 남아요. 카카오톡 안에서 연 화면과 바깥 브라우저는 기록이 따로예요.</span>
-    <span>방문 통계 안내: 페이지를 고치는 데 쓰려고 Umami(우마미)라는 도구로 방문 수, 어디서 들어왔는지, 단추를 누른 횟수만 세요. 쿠키를 쓰지 않고, 이름·연락처·고른 답·점수는 보내지 않아요. 통계는 Umami의 미국 서버에 최대 6개월 보관돼요.</span>
-    <span>틀린 곳을 찾으면 알려 주세요 — 직접 운영하는 무료 카카오톡 공부방 <a href="https://open.kakao.com/o/gJbIrbXi">open.kakao.com/o/gJbIrbXi</a></span>
-    <span>블로그 <a href="https://blog.naver.com/nclexnote">blog.naver.com/nclexnote</a> · 문제 확인 2026-11-16 · 제휴 없이 운영해요.</span>
+    <span>직접 만든 연습 문제예요 — 공식 NCLEX 문제나 시험 후기(복기)가 아니고, 점수는 복습용이에요.</span>
+    <details>
+      <summary>자세히 보기</summary>
+      <div class="moreb">
+        <span>해설은 공부용으로 줄여 쓴 것이에요. 현장에서는 처방과 기관 지침을 따라요.</span>
+        <span>푼 기록은 이 브라우저에만 남아요(카카오톡 안 화면과 바깥 브라우저는 따로).</span>
+        <span>방문 통계: 방문 수와 단추를 누른 횟수만 Umami로 세요. 쿠키 없음 · 이름·고른 답·점수는 보내지 않아요 · 미국 서버에 최대 6개월 보관.</span>
+      </div>
+    </details>
+    <span>틀린 곳은 <a href="https://open.kakao.com/o/gJbIrbXi">카카오톡 공부방</a>으로 · <a href="https://blog.naver.com/nclexnote">블로그</a> · 문제 확인 2026-11-16 · 제휴 없음</span>
   </footer>
 </div>
 
