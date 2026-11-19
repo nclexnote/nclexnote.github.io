@@ -55,6 +55,20 @@ details.ans ol{padding-bottom:.8rem}
 footer{padding:1.6rem 0 2.4rem;color:var(--muted);font-size:.88rem}
 footer p+p{margin-top:.5rem}
 @media(min-width:42rem){.two{grid-template-columns:1fr 1fr}.actions{grid-template-columns:repeat(3,1fr)}}
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:2px solid var(--ink)}
+.bar .wrap{display:flex;gap:.5rem;padding-block:.5rem}
+.bar button{flex:1;min-height:44px;font:inherit;font-weight:700;border:2px solid var(--ink);border-radius:.6rem;background:var(--paper);color:var(--ink);cursor:pointer}
+.bar button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.qa{list-style:none;padding:0;gap:.6rem}
+.qa li{border:1px solid var(--line);border-radius:.7rem;padding:.7rem .9rem;display:grid;gap:.4rem}
+.qa .q{font-weight:700}
+.cover .c{color:transparent;background:#e7e2d0;border-radius:.3rem;cursor:pointer;user-select:none;-webkit-user-select:none}
+.cover .c.open{color:inherit;background:var(--soft)}
+.cover td.c{box-shadow:inset 0 0 0 2px var(--paper)}
+.cover .two li .c{display:inline-block;min-width:6rem}
+.cover .two .note,.cover .two+.note{visibility:hidden}
+.tip{display:none;color:var(--muted);font-size:.9rem;margin-bottom:.8rem}
+.cover .tip{display:block}
 </style>
 </head>
 <body>
@@ -67,6 +81,13 @@ footer p+p{margin-top:.5rem}
 <p class="meta">확인 2026-11-04 · CDC 격리 지침(2007) 기준 · 직접 정리</p>
 </div>
 </header>
+
+<div class="bar">
+<div class="wrap">
+<button type="button" id="m-read" aria-pressed="true">전부 보기</button>
+<button type="button" id="m-cover" aria-pressed="false">가리고 외우기</button>
+</div>
+</div>
 
 <main>
 <section aria-labelledby="s-key">
@@ -89,13 +110,14 @@ footer p+p{margin-top:.5rem}
 <section aria-labelledby="s-three">
 <div class="wrap">
 <h2 id="s-three">전파 경로별 주의</h2>
+<p class="tip">가려진 칸을 누르면 답이 보여요.</p>
 <div class="scroll" tabindex="0" role="region" aria-label="전파 경로별 주의 표">
 <table>
 <thead><tr><th scope="col">구분</th><th scope="col">보호구</th><th scope="col">기억할 것</th></tr></thead>
 <tbody>
-<tr><th scope="row">접촉 주의</th><td>가운 + 장갑</td><td>혈압계와 청진기는 그 방 전용으로 둬요. C. diff는 포자라서 손 소독제 대신 비누와 물로 씻어요.</td></tr>
-<tr><th scope="row">비말 주의</th><td>수술용 마스크</td><td>수막구균 수막염은 효과적인 항생제를 시작하고 24시간까지 비말 주의예요.</td></tr>
-<tr><th scope="row">공기 주의</th><td>N95 + 음압 1인실</td><td>문은 닫아 둬요. N95는 방에서 나와 문을 닫은 뒤 벗어요.</td></tr>
+<tr><th scope="row">접촉 주의</th><td class="c">가운 + 장갑</td><td class="c">혈압계와 청진기는 그 방 전용으로 둬요. C. diff는 포자라서 손 소독제 대신 비누와 물로 씻어요.</td></tr>
+<tr><th scope="row">비말 주의</th><td class="c">수술용 마스크</td><td class="c">수막구균 수막염은 효과적인 항생제를 시작하고 24시간까지 비말 주의예요.</td></tr>
+<tr><th scope="row">공기 주의</th><td class="c">N95 + 음압 1인실</td><td class="c">문은 닫아 둬요. N95는 방에서 나와 문을 닫은 뒤 벗어요.</td></tr>
 </tbody>
 </table>
 </div>
@@ -108,20 +130,20 @@ footer p+p{margin-top:.5rem}
 <div class="box yes">
 <h3>입을 때</h3>
 <ol>
-<li>가운</li>
-<li>마스크</li>
-<li>고글</li>
-<li>장갑</li>
+<li><span class="c">가운</span></li>
+<li><span class="c">마스크</span></li>
+<li><span class="c">고글</span></li>
+<li><span class="c">장갑</span></li>
 </ol>
 <p class="note">깨끗한 몸통부터 덮고 손은 마지막이에요.</p>
 </div>
 <div class="box no">
 <h3>벗을 때</h3>
 <ol>
-<li>장갑</li>
-<li>고글</li>
-<li>가운</li>
-<li>마스크</li>
+<li><span class="c">장갑</span></li>
+<li><span class="c">고글</span></li>
+<li><span class="c">가운</span></li>
+<li><span class="c">마스크</span></li>
 </ol>
 <p class="note">가장 오염된 장갑부터 벗고 마스크는 마지막이에요.</p>
 </div>
@@ -129,35 +151,20 @@ footer p+p{margin-top:.5rem}
 <p class="note">그냥 거꾸로가 아니에요. 마스크는 입을 때 두 번째, 벗을 때 맨 끝이에요. 벗는 동안 보호구 바깥 면에 손이 닿지 않게 하고, 다 벗은 뒤 손 위생을 해요.</p>
 </div>
 </section>
-<section aria-labelledby="s-n95">
+<section aria-labelledby="s-qa">
 <div class="wrap">
-<h2 id="s-n95">N95와 환자 이송</h2>
-<ul>
-<li>N95는 1년마다 밀착 검사(fit test)를 받고, 쓸 때마다 직접 밀착 점검(seal check)을 해요.</li>
-<li>N95 위에 마스크를 겹치면 밀착이 깨져요.</li>
-<li>공기 주의 환자를 검사실로 옮길 때는 환자에게 수술용 마스크를 씌워요.</li>
-<li>환자에게 N95를 씌우는 것은 틀린 답이에요.</li>
-</ul>
-</div>
-</section>
-<section aria-labelledby="s-room">
-<div class="wrap">
-<h2 id="s-room">같은 방을 써도 되나요</h2>
-<ul>
-<li>같은 균이 확인된 환자끼리만 한 방을 쓸 수 있어요.</li>
-<li>MRSA와 VRE는 서로 다른 균이라 한 방에 두지 않아요.</li>
-<li>결핵과 홍역은 둘 다 공기 주의지만 병원체가 달라요. 각자 음압 1인실이 필요해요.</li>
-<li>면역이 약한 환자는 감염 환자와 같은 방에 두지 않아요.</li>
-</ul>
-</div>
-</section>
-<section aria-labelledby="s-special">
-<div class="wrap">
-<h2 id="s-special">특수 상황</h2>
-<ul>
-<li>온몸에 퍼진 대상포진, 면역이 약한 환자의 대상포진은 공기 주의와 접촉 주의를 함께 해요.</li>
-<li>수두나 홍역 면역이 없는 직원은 그 환자를 맡지 않아요.</li>
-<li>방문객에게도 같은 보호구를 교육해요.</li>
+<h2 id="s-qa">눌러서 확인하기</h2>
+<ul class="qa">
+<li><span class="q">공기 주의 환자를 검사실로 옮길 때, 환자에게 씌우는 것은?</span><span class="c">수술용 마스크예요. 환자에게 N95를 씌우는 것은 틀린 답이에요.</span></li>
+<li><span class="q">C. diff 환자를 본 뒤 손 위생은?</span><span class="c">비누와 물로 씻어요. 포자라서 손 소독제로는 안 돼요.</span></li>
+<li><span class="q">수막구균 수막염의 비말 주의는 언제까지?</span><span class="c">효과적인 항생제를 시작하고 24시간까지예요.</span></li>
+<li><span class="q">N95 밀착 검사(fit test)는 얼마마다 받나요?</span><span class="c">1년마다 받아요. 쓸 때마다 밀착 점검(seal check)도 직접 해요.</span></li>
+<li><span class="q">N95 위에 수술용 마스크를 겹쳐 써도 되나요?</span><span class="c">안 돼요. 밀착이 깨져요.</span></li>
+<li><span class="q">MRSA 환자와 VRE 환자, 한 방을 써도 되나요?</span><span class="c">안 돼요. 같은 균이 확인된 환자끼리만 한 방을 써요.</span></li>
+<li><span class="q">결핵 환자와 홍역 환자, 한 방을 써도 되나요?</span><span class="c">안 돼요. 둘 다 공기 주의지만 병원체가 달라서 각자 음압 1인실이 필요해요.</span></li>
+<li><span class="q">온몸에 퍼진 대상포진은 어떤 주의인가요?</span><span class="c">공기 주의와 접촉 주의를 함께 해요. 면역이 약한 환자의 대상포진도 같아요.</span></li>
+<li><span class="q">수두·홍역 면역이 없는 직원이 그 환자를 맡아도 되나요?</span><span class="c">맡지 않아요.</span></li>
+<li><span class="q">보호구를 벗을 때 맨 마지막에 벗는 것은?</span><span class="c">마스크예요. 다 벗은 뒤 손 위생을 해요.</span></li>
 </ul>
 </div>
 </section>
@@ -183,5 +190,13 @@ footer p+p{margin-top:.5rem}
 <p>틀린 곳은 <a href="https://open.kakao.com/o/gJbIrbXi">카카오톡 공부방</a>으로 알려 주세요.</p>
 </div>
 </footer>
+<script>
+(function(){var b=document.body,r=document.getElementById('m-read'),c=document.getElementById('m-cover'),els=document.querySelectorAll('.c');
+function set(on){b.classList.toggle('cover',on);r.setAttribute('aria-pressed',String(!on));c.setAttribute('aria-pressed',String(on));
+for(var i=0;i<els.length;i++){els[i].classList.remove('open');if(on){els[i].setAttribute('tabindex','0');els[i].setAttribute('role','button');}else{els[i].removeAttribute('tabindex');els[i].removeAttribute('role');}}}
+r.addEventListener('click',function(){set(false);});c.addEventListener('click',function(){set(true);});
+function tog(e){var t=e.target.closest('.c');if(!t||!b.classList.contains('cover'))return;if(e.type==='keydown'){if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();}t.classList.toggle('open');}
+document.addEventListener('click',tog);document.addEventListener('keydown',tog);})();
+</script>
 </body>
 </html>
