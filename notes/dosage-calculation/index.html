@@ -55,7 +55,21 @@ details.ans ol{padding-bottom:.8rem}
 footer{padding:1.6rem 0 2.4rem;color:var(--muted);font-size:.88rem}
 footer p+p{margin-top:.5rem}
 @media(min-width:42rem){.two{grid-template-columns:1fr 1fr}.actions{grid-template-columns:repeat(3,1fr)}}
-</style>
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:2px solid var(--ink)}
+    .bar .wrap{display:flex;gap:.5rem;padding-block:.5rem}
+    .bar button{flex:1;min-height:44px;font:inherit;font-weight:700;border:2px solid var(--ink);border-radius:.6rem;background:var(--paper);color:var(--ink);cursor:pointer}
+    .bar button[aria-pressed="true"]{background:var(--ink);color:#fff}
+    .qa{list-style:none;padding:0;gap:.6rem}
+    .qa li{border:1px solid var(--line);border-radius:.7rem;padding:.7rem .9rem;display:grid;gap:.4rem}
+    .qa .q{font-weight:700}
+    .cover .c{color:transparent;background:#e7e2d0;border-radius:.3rem;cursor:pointer;user-select:none;-webkit-user-select:none}
+    .cover .c.open{color:inherit;background:var(--soft)}
+    .cover td.c{box-shadow:inset 0 0 0 2px var(--paper)}
+    .cover .two li .c{display:inline-block;min-width:6rem}
+    .cover .two .note,.cover .two+.note{visibility:hidden}
+    .tip{display:none;color:var(--muted);font-size:.9rem;margin-bottom:.8rem}
+    .cover .tip{display:block}
+    </style>
 </head>
 <body>
 <header>
@@ -68,7 +82,14 @@ footer p+p{margin-top:.5rem}
 </div>
 </header>
 
-<main>
+<div class="bar">
+    <div class="wrap">
+    <button type="button" id="m-read" aria-pressed="true">전부 보기</button>
+    <button type="button" id="m-cover" aria-pressed="false">가리고 외우기</button>
+    </div>
+    </div>
+
+    <main>
 <section aria-labelledby="s-key">
 <div class="wrap">
 <h2 id="s-key">한 줄 핵심</h2>
@@ -78,15 +99,16 @@ footer p+p{margin-top:.5rem}
 <section aria-labelledby="s-formula">
 <div class="wrap">
 <h2 id="s-formula">공식 5개</h2>
+<p class="tip">가려진 칸을 누르면 답이 보여요.</p>
 <div class="scroll" tabindex="0" role="region" aria-label="약물 계산 공식 표">
 <table>
 <thead><tr><th scope="col">구분</th><th scope="col">공식</th><th scope="col">기억할 것</th></tr></thead>
 <tbody>
-<tr><th scope="row">알약·물약</th><td>처방량 ÷ 가진 양 × 부피</td><td>단위 먼저 같게</td></tr>
-<tr><th scope="row">체중 용량</th><td>체중(kg) × mg/kg</td><td>lb ÷ 2.2 = kg</td></tr>
-<tr><th scope="row">수액 속도</th><td>총 mL ÷ 시간(hr)</td><td>답은 mL/hr</td></tr>
-<tr><th scope="row">방울 수</th><td>mL × 방울계수 ÷ 분</td><td>답은 gtt/min</td></tr>
-<tr><th scope="row">농도 주입</th><td>처방량/hr ÷ 1 mL당 양</td><td>1 mL당 양부터</td></tr>
+<tr><th scope="row">알약·물약</th><td class="c">처방량 ÷ 가진 양 × 부피</td><td class="c">단위 먼저 같게</td></tr>
+<tr><th scope="row">체중 용량</th><td class="c">체중(kg) × mg/kg</td><td class="c">lb ÷ 2.2 = kg</td></tr>
+<tr><th scope="row">수액 속도</th><td class="c">총 mL ÷ 시간(hr)</td><td class="c">답은 mL/hr</td></tr>
+<tr><th scope="row">방울 수</th><td class="c">mL × 방울계수 ÷ 분</td><td class="c">답은 gtt/min</td></tr>
+<tr><th scope="row">농도 주입</th><td class="c">처방량/hr ÷ 1 mL당 양</td><td class="c">1 mL당 양부터</td></tr>
 </tbody>
 </table>
 </div>
@@ -99,11 +121,11 @@ footer p+p{margin-top:.5rem}
 <table>
 <thead><tr><th scope="col">구분</th><th scope="col">환산</th><th scope="col">쓰는 곳</th></tr></thead>
 <tbody>
-<tr><th scope="row">체중</th><td>1 kg = 2.2 lb</td><td>체중 용량 계산</td></tr>
-<tr><th scope="row">무게</th><td>1 g = 1,000 mg</td><td>처방과 약 단위 맞추기</td></tr>
-<tr><th scope="row">무게</th><td>1 mg = 1,000 mcg</td><td>아주 적은 용량 약</td></tr>
-<tr><th scope="row">부피</th><td>1 L = 1,000 mL</td><td>수액 속도</td></tr>
-<tr><th scope="row">가정용</th><td>1 tsp = 5 mL · 1 oz = 30 mL</td><td>가정 투약·섭취량</td></tr>
+<tr><th scope="row">체중</th><td class="c">1 kg = 2.2 lb</td><td class="c">체중 용량 계산</td></tr>
+<tr><th scope="row">무게</th><td class="c">1 g = 1,000 mg</td><td class="c">처방과 약 단위 맞추기</td></tr>
+<tr><th scope="row">무게</th><td class="c">1 mg = 1,000 mcg</td><td class="c">아주 적은 용량 약</td></tr>
+<tr><th scope="row">부피</th><td class="c">1 L = 1,000 mL</td><td class="c">수액 속도</td></tr>
+<tr><th scope="row">가정용</th><td class="c">1 tsp = 5 mL · 1 oz = 30 mL</td><td class="c">가정 투약·섭취량</td></tr>
 </tbody>
 </table>
 </div>
@@ -116,11 +138,11 @@ footer p+p{margin-top:.5rem}
 <table>
 <thead><tr><th scope="col">구분</th><th scope="col">공식 안내</th><th scope="col">기억할 것</th></tr></thead>
 <tbody>
-<tr><th scope="row">계산기</th><td>화면 계산기 제공</td><td>개인 계산기는 금지</td></tr>
-<tr><th scope="row">환산표</th><td>가져갈 수 없음</td><td>환산은 외워서</td></tr>
-<tr><th scope="row">메모</th><td>지우는 메모판과 마커</td><td>식을 적으며 풀기</td></tr>
-<tr><th scope="row">자릿수</th><td>문제가 알려 줌</td><td>정수 또는 소수 1~2자리</td></tr>
-<tr><th scope="row">반올림</th><td>계산 끝에</td><td>중간에 자르지 않기</td></tr>
+<tr><th scope="row">계산기</th><td class="c">화면 계산기 제공</td><td class="c">개인 계산기는 금지</td></tr>
+<tr><th scope="row">환산표</th><td class="c">가져갈 수 없음</td><td class="c">환산은 외워서</td></tr>
+<tr><th scope="row">메모</th><td class="c">지우는 메모판과 마커</td><td class="c">식을 적으며 풀기</td></tr>
+<tr><th scope="row">자릿수</th><td class="c">문제가 알려 줌</td><td class="c">정수 또는 소수 1~2자리</td></tr>
+<tr><th scope="row">반올림</th><td class="c">계산 끝에</td><td class="c">중간에 자르지 않기</td></tr>
 </tbody>
 </table>
 </div><p class="note">소수 자리로 쓰라고 하면 소수점을 꼭 찍어야 정답으로 인정돼요. 계산 문제가 몇 개 나오는지는 정해져 있지 않아요.</p>
@@ -133,12 +155,12 @@ footer p+p{margin-top:.5rem}
 <table style="min-width:40rem">
 <thead><tr><th scope="col">번호</th><th scope="col">문제</th><th scope="col">풀이</th><th scope="col">답</th></tr></thead>
 <tbody>
-<tr><th scope="row">1</th><td>처방 0.25 mg, 한 알에 0.125 mg</td><td>0.25 ÷ 0.125</td><td>2알</td></tr>
-<tr><th scope="row">2</th><td>체중 33 lb, 40 mg/kg/day를 8시간마다, 약은 250 mg/5 mL</td><td>33 ÷ 2.2 = 15 kg → 15 × 40 = 하루 600 mg → ÷ 3 = 200 mg → 200 ÷ 250 × 5</td><td>한 번에 4 mL</td></tr>
-<tr><th scope="row">3</th><td>1,000 mL를 8시간 동안</td><td>1,000 ÷ 8</td><td>125 mL/hr</td></tr>
-<tr><th scope="row">4</th><td>1,000 mL를 8시간 동안, 방울계수 15 gtt/mL</td><td>1,000 × 15 ÷ 480분 = 31.25</td><td>31 gtt/min (정수)</td></tr>
-<tr><th scope="row">5</th><td>500 mL에 25,000 units, 처방은 시간당 1,200 units</td><td>25,000 ÷ 500 = 1 mL에 50 units → 1,200 ÷ 50</td><td>24 mL/hr</td></tr>
-<tr><th scope="row">6</th><td>체중 150 lb, 2 mg/kg, 소수 첫째 자리까지</td><td>150 ÷ 2.2 = 68.1818… → × 2 = 136.3636…</td><td>136.4 mg</td></tr>
+<tr><th scope="row">1</th><td class="c">처방 0.25 mg, 한 알에 0.125 mg</td><td class="c">0.25 ÷ 0.125</td><td class="c">2알</td></tr>
+<tr><th scope="row">2</th><td class="c">체중 33 lb, 40 mg/kg/day를 8시간마다, 약은 250 mg/5 mL</td><td class="c">33 ÷ 2.2 = 15 kg → 15 × 40 = 하루 600 mg → ÷ 3 = 200 mg → 200 ÷ 250 × 5</td><td class="c">한 번에 4 mL</td></tr>
+<tr><th scope="row">3</th><td class="c">1,000 mL를 8시간 동안</td><td class="c">1,000 ÷ 8</td><td class="c">125 mL/hr</td></tr>
+<tr><th scope="row">4</th><td class="c">1,000 mL를 8시간 동안, 방울계수 15 gtt/mL</td><td class="c">1,000 × 15 ÷ 480분 = 31.25</td><td class="c">31 gtt/min (정수)</td></tr>
+<tr><th scope="row">5</th><td class="c">500 mL에 25,000 units, 처방은 시간당 1,200 units</td><td class="c">25,000 ÷ 500 = 1 mL에 50 units → 1,200 ÷ 50</td><td class="c">24 mL/hr</td></tr>
+<tr><th scope="row">6</th><td class="c">체중 150 lb, 2 mg/kg, 소수 첫째 자리까지</td><td class="c">150 ÷ 2.2 = 68.1818… → × 2 = 136.3636…</td><td class="c">136.4 mg</td></tr>
 </tbody>
 </table>
 </div><p class="note">6번을 중간에 68로 잘라 버리면 68 × 2 = 136 mg으로 답이 달라져요. 계산기에 뜬 숫자를 지우지 말고 그대로 이어서 계산해요.</p>
@@ -186,5 +208,13 @@ footer p+p{margin-top:.5rem}
 <p>틀린 곳은 <a href="https://open.kakao.com/o/gJbIrbXi">카카오톡 공부방</a>으로 알려 주세요.</p>
 </div>
 </footer>
-</body>
+<script>
+    (function(){var b=document.body,r=document.getElementById('m-read'),c=document.getElementById('m-cover'),els=document.querySelectorAll('.c');
+    function set(on){b.classList.toggle('cover',on);r.setAttribute('aria-pressed',String(!on));c.setAttribute('aria-pressed',String(on));
+    for(var i=0;i<els.length;i++){els[i].classList.remove('open');if(on){els[i].setAttribute('tabindex','0');els[i].setAttribute('role','button');}else{els[i].removeAttribute('tabindex');els[i].removeAttribute('role');}}}
+    r.addEventListener('click',function(){set(false);});c.addEventListener('click',function(){set(true);});
+    function tog(e){var t=e.target.closest('.c');if(!t||!b.classList.contains('cover'))return;if(e.type==='keydown'){if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();}t.classList.toggle('open');}
+    document.addEventListener('click',tog);document.addEventListener('keydown',tog);})();
+    </script>
+    </body>
 </html>
