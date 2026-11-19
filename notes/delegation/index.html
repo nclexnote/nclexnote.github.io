@@ -52,7 +52,21 @@ ul,ol{padding-left:1.2rem;display:grid;gap:.35rem}
 footer{padding:1.6rem 0 2.4rem;color:var(--muted);font-size:.88rem}
 footer p+p{margin-top:.5rem}
 @media(min-width:42rem){.two{grid-template-columns:1fr 1fr}.actions{grid-template-columns:repeat(3,1fr)}}
-</style>
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:2px solid var(--ink)}
+    .bar .wrap{display:flex;gap:.5rem;padding-block:.5rem}
+    .bar button{flex:1;min-height:44px;font:inherit;font-weight:700;border:2px solid var(--ink);border-radius:.6rem;background:var(--paper);color:var(--ink);cursor:pointer}
+    .bar button[aria-pressed="true"]{background:var(--ink);color:#fff}
+    .qa{list-style:none;padding:0;gap:.6rem}
+    .qa li{border:1px solid var(--line);border-radius:.7rem;padding:.7rem .9rem;display:grid;gap:.4rem}
+    .qa .q{font-weight:700}
+    .cover .c{color:transparent;background:#e7e2d0;border-radius:.3rem;cursor:pointer;user-select:none;-webkit-user-select:none}
+    .cover .c.open{color:inherit;background:var(--soft)}
+    .cover td.c{box-shadow:inset 0 0 0 2px var(--paper)}
+    .cover .two li .c{display:inline-block;min-width:6rem}
+    .cover .two .note,.cover .two+.note{visibility:hidden}
+    .tip{display:none;color:var(--muted);font-size:.9rem;margin-bottom:.8rem}
+    .cover .tip{display:block}
+    </style>
 </head>
 <body>
 <header>
@@ -65,7 +79,14 @@ footer p+p{margin-top:.5rem}
 </div>
 </header>
 
-<main>
+<div class="bar">
+    <div class="wrap">
+    <button type="button" id="m-read" aria-pressed="true">전부 보기</button>
+    <button type="button" id="m-cover" aria-pressed="false">가리고 외우기</button>
+    </div>
+    </div>
+
+    <main>
 <section aria-labelledby="s-key">
 <div class="wrap">
 <h2 id="s-key">한 줄 핵심</h2>
@@ -76,13 +97,14 @@ footer p+p{margin-top:.5rem}
 <section aria-labelledby="s-who">
 <div class="wrap">
 <h2 id="s-who">누구에게 무엇을</h2>
+<p class="tip">가려진 칸을 누르면 답이 보여요.</p>
 <div class="scroll" tabindex="0" role="region" aria-label="직종별로 줄 수 있는 일 표">
 <table>
 <thead><tr><th scope="col">누구</th><th scope="col">줄 수 있는 일</th><th scope="col">주지 않는 일</th></tr></thead>
 <tbody>
-<tr><th scope="row">보조인력<br><span lang="en">UAP</span></th><td>안정된 환자의 활력징후, 위생, 체위 변경, 보행, 섭취량·배설량, 체중</td><td>사정·교육·판단이 필요한 일, 투약</td></tr>
-<tr><th scope="row"><span lang="en">LPN·LVN</span></th><td>안정된 환자의 투약, 드레싱, 흡인, 도뇨, 경관영양, 자료 모으기</td><td>첫 사정, 교육 계획, 수혈, 정맥 주사 약</td></tr>
-<tr><th scope="row">간호사<br><span lang="en">RN</span></th><td>첫 사정과 판단, 간호 진단·계획, 환자 교육, 평가, 불안정한 환자</td><td>—</td></tr>
+<tr><th scope="row">보조인력<br><span lang="en">UAP</span></th><td class="c">안정된 환자의 활력징후, 위생, 체위 변경, 보행, 섭취량·배설량, 체중</td><td class="c">사정·교육·판단이 필요한 일, 투약</td></tr>
+<tr><th scope="row"><span lang="en">LPN·LVN</span></th><td class="c">안정된 환자의 투약, 드레싱, 흡인, 도뇨, 경관영양, 자료 모으기</td><td class="c">첫 사정, 교육 계획, 수혈, 정맥 주사 약</td></tr>
+<tr><th scope="row">간호사<br><span lang="en">RN</span></th><td class="c">첫 사정과 판단, 간호 진단·계획, 환자 교육, 평가, 불안정한 환자</td><td class="c">—</td></tr>
 </tbody>
 </table>
 </div>
@@ -110,11 +132,11 @@ footer p+p{margin-top:.5rem}
 <table>
 <thead><tr><th scope="col">원칙</th><th scope="col">넘기기 전에 묻는 말</th></tr></thead>
 <tbody>
-<tr><th scope="row">알맞은 일</th><td>넘겨도 되는 일인가</td></tr>
-<tr><th scope="row">알맞은 상황</th><td>환자가 안정되어 있고 결과가 예측되는가</td></tr>
-<tr><th scope="row">알맞은 사람</th><td>그 사람의 업무 범위와 교육 안에 있는가</td></tr>
-<tr><th scope="row">알맞은 지시와 소통</th><td>무엇을, 언제까지, 무엇을 알려야 하는지 분명히 말했는가</td></tr>
-<tr><th scope="row">알맞은 감독과 확인</th><td>중간에 보고 결과를 확인했는가</td></tr>
+<tr><th scope="row">알맞은 일</th><td class="c">넘겨도 되는 일인가</td></tr>
+<tr><th scope="row">알맞은 상황</th><td class="c">환자가 안정되어 있고 결과가 예측되는가</td></tr>
+<tr><th scope="row">알맞은 사람</th><td class="c">그 사람의 업무 범위와 교육 안에 있는가</td></tr>
+<tr><th scope="row">알맞은 지시와 소통</th><td class="c">무엇을, 언제까지, 무엇을 알려야 하는지 분명히 말했는가</td></tr>
+<tr><th scope="row">알맞은 감독과 확인</th><td class="c">중간에 보고 결과를 확인했는가</td></tr>
 </tbody>
 </table>
 </div>
@@ -190,5 +212,13 @@ footer p+p{margin-top:.5rem}
 <p>틀린 곳은 <a href="https://open.kakao.com/o/gJbIrbXi">카카오톡 공부방</a>으로 알려 주세요.</p>
 </div>
 </footer>
-</body>
+<script>
+    (function(){var b=document.body,r=document.getElementById('m-read'),c=document.getElementById('m-cover'),els=document.querySelectorAll('.c');
+    function set(on){b.classList.toggle('cover',on);r.setAttribute('aria-pressed',String(!on));c.setAttribute('aria-pressed',String(on));
+    for(var i=0;i<els.length;i++){els[i].classList.remove('open');if(on){els[i].setAttribute('tabindex','0');els[i].setAttribute('role','button');}else{els[i].removeAttribute('tabindex');els[i].removeAttribute('role');}}}
+    r.addEventListener('click',function(){set(false);});c.addEventListener('click',function(){set(true);});
+    function tog(e){var t=e.target.closest('.c');if(!t||!b.classList.contains('cover'))return;if(e.type==='keydown'){if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();}t.classList.toggle('open');}
+    document.addEventListener('click',tog);document.addEventListener('keydown',tog);})();
+    </script>
+    </body>
 </html>
