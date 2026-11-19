@@ -55,7 +55,21 @@ details.ans ol{padding-bottom:.8rem}
 footer{padding:1.6rem 0 2.4rem;color:var(--muted);font-size:.88rem}
 footer p+p{margin-top:.5rem}
 @media(min-width:42rem){.two{grid-template-columns:1fr 1fr}.actions{grid-template-columns:repeat(3,1fr)}}
-</style>
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:2px solid var(--ink)}
+    .bar .wrap{display:flex;gap:.5rem;padding-block:.5rem}
+    .bar button{flex:1;min-height:44px;font:inherit;font-weight:700;border:2px solid var(--ink);border-radius:.6rem;background:var(--paper);color:var(--ink);cursor:pointer}
+    .bar button[aria-pressed="true"]{background:var(--ink);color:#fff}
+    .qa{list-style:none;padding:0;gap:.6rem}
+    .qa li{border:1px solid var(--line);border-radius:.7rem;padding:.7rem .9rem;display:grid;gap:.4rem}
+    .qa .q{font-weight:700}
+    .cover .c{color:transparent;background:#e7e2d0;border-radius:.3rem;cursor:pointer;user-select:none;-webkit-user-select:none}
+    .cover .c.open{color:inherit;background:var(--soft)}
+    .cover td.c{box-shadow:inset 0 0 0 2px var(--paper)}
+    .cover .two li .c{display:inline-block;min-width:6rem}
+    .cover .two .note,.cover .two+.note{visibility:hidden}
+    .tip{display:none;color:var(--muted);font-size:.9rem;margin-bottom:.8rem}
+    .cover .tip{display:block}
+    </style>
 </head>
 <body>
 <header>
@@ -68,7 +82,14 @@ footer p+p{margin-top:.5rem}
 </div>
 </header>
 
-<main>
+<div class="bar">
+    <div class="wrap">
+    <button type="button" id="m-read" aria-pressed="true">전부 보기</button>
+    <button type="button" id="m-cover" aria-pressed="false">가리고 외우기</button>
+    </div>
+    </div>
+
+    <main>
 <section aria-labelledby="s-key">
 <div class="wrap">
 <h2 id="s-key">한 줄 핵심</h2>
@@ -78,14 +99,15 @@ footer p+p{margin-top:.5rem}
 <section aria-labelledby="s-normal">
 <div class="wrap">
 <h2 id="s-normal">정상 수치</h2>
+<p class="tip">가려진 칸을 누르면 답이 보여요.</p>
 <div class="scroll" tabindex="0" role="region" aria-label="ABGA 정상 수치 표">
 <table>
 <thead><tr><th scope="col">항목</th><th scope="col">정상 범위</th><th scope="col">뜻</th></tr></thead>
 <tbody>
-<tr><th scope="row">pH</th><td>7.35~7.45</td><td>낮으면 산증, 높으면 알칼리증</td></tr>
-<tr><th scope="row">PaCO₂</th><td>35~45 mmHg</td><td>폐가 조절해요. 높으면 산 쪽</td></tr>
-<tr><th scope="row">HCO₃⁻</th><td>21~28 mEq/L</td><td>신장이 조절하는 염기예요. 높으면 알칼리 쪽</td></tr>
-<tr><th scope="row">PaO₂</th><td>80~100 mmHg</td><td>산소 상태만 알려 줘요. 산증·알칼리증을 가르는 데는 쓰지 않아요</td></tr>
+<tr><th scope="row">pH</th><td class="c">7.35~7.45</td><td class="c">낮으면 산증, 높으면 알칼리증</td></tr>
+<tr><th scope="row">PaCO₂</th><td class="c">35~45 mmHg</td><td class="c">폐가 조절해요. 높으면 산 쪽</td></tr>
+<tr><th scope="row">HCO₃⁻</th><td class="c">21~28 mEq/L</td><td class="c">신장이 조절하는 염기예요. 높으면 알칼리 쪽</td></tr>
+<tr><th scope="row">PaO₂</th><td class="c">80~100 mmHg</td><td class="c">산소 상태만 알려 줘요. 산증·알칼리증을 가르는 데는 쓰지 않아요</td></tr>
 </tbody>
 </table>
 </div><p class="note">HCO₃⁻는 교재마다 조금 달라요. Saunders 9판은 21~28, 다른 자료와 검사실은 22~26을 쓰기도 해요. 공부하는 교재의 숫자로 외우면 돼요.</p>
@@ -109,10 +131,10 @@ footer p+p{margin-top:.5rem}
 <table style="min-width:38rem">
 <thead><tr><th scope="col">구분</th><th scope="col">pH</th><th scope="col">먼저 변하는 값</th><th scope="col">흔한 원인</th><th scope="col">간호 핵심</th></tr></thead>
 <tbody>
-<tr><th scope="row">호흡성 산증</th><td>낮음</td><td>PaCO₂ 높음</td><td>COPD, 진정제, 폐렴</td><td>기도·환기 먼저</td></tr>
-<tr><th scope="row">호흡성 알칼리증</th><td>높음</td><td>PaCO₂ 낮음</td><td>불안, 통증, 발열</td><td>원인·산소 확인</td></tr>
-<tr><th scope="row">대사성 산증</th><td>낮음</td><td>HCO₃⁻ 낮음</td><td>DKA, 설사, 신부전</td><td>원인 치료·칼륨</td></tr>
-<tr><th scope="row">대사성 알칼리증</th><td>높음</td><td>HCO₃⁻ 높음</td><td>구토, 위 흡인, 이뇨제</td><td>수분·칼륨 보충</td></tr>
+<tr><th scope="row">호흡성 산증</th><td class="c">낮음</td><td class="c">PaCO₂ 높음</td><td class="c">COPD, 진정제, 폐렴</td><td class="c">기도·환기 먼저</td></tr>
+<tr><th scope="row">호흡성 알칼리증</th><td class="c">높음</td><td class="c">PaCO₂ 낮음</td><td class="c">불안, 통증, 발열</td><td class="c">원인·산소 확인</td></tr>
+<tr><th scope="row">대사성 산증</th><td class="c">낮음</td><td class="c">HCO₃⁻ 낮음</td><td class="c">DKA, 설사, 신부전</td><td class="c">원인 치료·칼륨</td></tr>
+<tr><th scope="row">대사성 알칼리증</th><td class="c">높음</td><td class="c">HCO₃⁻ 높음</td><td class="c">구토, 위 흡인, 이뇨제</td><td class="c">수분·칼륨 보충</td></tr>
 </tbody>
 </table>
 </div>
@@ -125,9 +147,9 @@ footer p+p{margin-top:.5rem}
 <table>
 <thead><tr><th scope="col">구분</th><th scope="col">pH</th><th scope="col">반대쪽 값</th><th scope="col">뜻</th></tr></thead>
 <tbody>
-<tr><th scope="row">비보상</th><td>정상 밖</td><td>정상</td><td>아직 돕지 못함</td></tr>
-<tr><th scope="row">부분 보상</th><td>정상 밖</td><td>정상 밖</td><td>돕는 중</td></tr>
-<tr><th scope="row">완전 보상</th><td>정상 안</td><td>정상 밖</td><td>다 따라잡음</td></tr>
+<tr><th scope="row">비보상</th><td class="c">정상 밖</td><td class="c">정상</td><td class="c">아직 돕지 못함</td></tr>
+<tr><th scope="row">부분 보상</th><td class="c">정상 밖</td><td class="c">정상 밖</td><td class="c">돕는 중</td></tr>
+<tr><th scope="row">완전 보상</th><td class="c">정상 안</td><td class="c">정상 밖</td><td class="c">다 따라잡음</td></tr>
 </tbody>
 </table>
 </div><p class="note">완전 보상이면 7.40을 기준으로 봐요. 7.40보다 낮으면 원래 문제는 산증, 높으면 알칼리증이에요. 폐는 몇 분에서 몇 시간 안에 빠르게 돕고, 신장은 며칠에 걸쳐 천천히 도와요.</p>
@@ -140,11 +162,11 @@ footer p+p{margin-top:.5rem}
 <table>
 <thead><tr><th scope="col">번호</th><th scope="col">상황</th><th scope="col">pH</th><th scope="col">PaCO₂</th><th scope="col">HCO₃⁻</th></tr></thead>
 <tbody>
-<tr><th scope="row">1</th><td>진통제 주사 뒤 호흡이 느려진 환자</td><td>7.26</td><td>58</td><td>25</td></tr>
-<tr><th scope="row">2</th><td>혈당이 높고 숨이 깊고 빠른 환자</td><td>7.29</td><td>30</td><td>14</td></tr>
-<tr><th scope="row">3</th><td>불안해하며 숨을 몰아쉬는 환자</td><td>7.53</td><td>30</td><td>24</td></tr>
-<tr><th scope="row">4</th><td>어제부터 구토를 반복한 환자</td><td>7.50</td><td>40</td><td>30</td></tr>
-<tr><th scope="row">5</th><td>COPD를 오래 앓아 온 환자</td><td>7.36</td><td>55</td><td>30</td></tr>
+<tr><th scope="row">1</th><td class="c">진통제 주사 뒤 호흡이 느려진 환자</td><td class="c">7.26</td><td class="c">58</td><td class="c">25</td></tr>
+<tr><th scope="row">2</th><td class="c">혈당이 높고 숨이 깊고 빠른 환자</td><td class="c">7.29</td><td class="c">30</td><td class="c">14</td></tr>
+<tr><th scope="row">3</th><td class="c">불안해하며 숨을 몰아쉬는 환자</td><td class="c">7.53</td><td class="c">30</td><td class="c">24</td></tr>
+<tr><th scope="row">4</th><td class="c">어제부터 구토를 반복한 환자</td><td class="c">7.50</td><td class="c">40</td><td class="c">30</td></tr>
+<tr><th scope="row">5</th><td class="c">COPD를 오래 앓아 온 환자</td><td class="c">7.36</td><td class="c">55</td><td class="c">30</td></tr>
 </tbody>
 </table>
 </div><details class="ans"><summary>정답 보기</summary>
@@ -202,5 +224,13 @@ footer p+p{margin-top:.5rem}
 <p>틀린 곳은 <a href="https://open.kakao.com/o/gJbIrbXi">카카오톡 공부방</a>으로 알려 주세요.</p>
 </div>
 </footer>
-</body>
+<script>
+    (function(){var b=document.body,r=document.getElementById('m-read'),c=document.getElementById('m-cover'),els=document.querySelectorAll('.c');
+    function set(on){b.classList.toggle('cover',on);r.setAttribute('aria-pressed',String(!on));c.setAttribute('aria-pressed',String(on));
+    for(var i=0;i<els.length;i++){els[i].classList.remove('open');if(on){els[i].setAttribute('tabindex','0');els[i].setAttribute('role','button');}else{els[i].removeAttribute('tabindex');els[i].removeAttribute('role');}}}
+    r.addEventListener('click',function(){set(false);});c.addEventListener('click',function(){set(true);});
+    function tog(e){var t=e.target.closest('.c');if(!t||!b.classList.contains('cover'))return;if(e.type==='keydown'){if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();}t.classList.toggle('open');}
+    document.addEventListener('click',tog);document.addEventListener('keydown',tog);})();
+    </script>
+    </body>
 </html>
