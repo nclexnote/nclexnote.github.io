@@ -94,6 +94,7 @@ dd{margin:0}
 <label class="option"><input type="radio" name="sample" value="objective"> <span lang="en">Objective data</span></label>
 </fieldset>
 <p class="feedback" id="sample-feedback" aria-live="polite" aria-atomic="true"></p>
+<a class="action" id="sample-more" href="/quiz/" hidden>이런 문제 더 풀기 <span aria-hidden="true">&nbsp;→</span></a>
 <noscript><details><summary>정답과 해설 보기</summary><p>정답은 주관적 자료예요. 환자가 직접 말한 증상을 기록한 내용이에요.</p></details></noscript>
 <small>개념 확인용으로 직접 만든 예시입니다.</small>
 </div>
@@ -116,8 +117,8 @@ dd{margin:0}
 <div class="wrap">
 <h2 id="channels">오늘 무엇을 준비할까요?</h2>
 <div class="grid">
+<article class="card"><h3>풀기</h3><p>과목별 연습문제를 바로 풀고 한국어 해설을 확인해요.</p><a href="/quiz/">무료 연습문제 풀기 <span aria-hidden="true">&nbsp;→</span></a></article>
 <article class="card"><h3>듣기</h3><p>이동 중에 한국어로 핵심 개념을 복습해요.</p><a href="https://www.youtube.com/@%EA%B7%80%EB%A1%9C%EB%93%A3%EB%8A%94%EC%97%94%ED%81%B4%EB%A0%89%EC%8A%A4">유튜브에서 듣기 <span aria-hidden="true">&nbsp;↗</span></a></article>
-<article class="card"><h3>풀기</h3><p>과목별 연습문제를 가입 없이 풀고 한국어 해설을 확인해요.</p><a href="/quiz/">무료 연습문제 풀기 <span aria-hidden="true">&nbsp;→</span></a></article>
 <article class="card"><h3>서류</h3><p>응시 절차와 준비할 서류를 공식 안내와 함께 확인해요.</p><a href="https://blog.naver.com/nclexnote">블로그에서 서류 안내 보기 <span aria-hidden="true">&nbsp;↗</span></a></article>
 </div>
 </div>
@@ -148,7 +149,7 @@ dd{margin:0}
 <section aria-labelledby="faq">
 <div class="wrap">
 <h2 id="faq">자주 묻는 질문</h2>
-<details><summary>가입하지 않고도 연습문제를 풀 수 있나요?</summary><p>네. 공개 연습문제는 가입 없이 풀고 해설을 확인할 수 있어요.</p></details>
+<details><summary>연습문제는 무료인가요?</summary><p>네. 공개 연습문제는 누구나 바로 풀고 한국어 해설을 확인할 수 있어요.</p></details>
 <details><summary>서류 준비팩은 어느 주 기준인가요?</summary><p>첫 준비팩은 뉴욕주 기준으로 준비하고 있어요. 다른 주에 신청한다면 해당 면허 기관의 안내를 확인해 주세요.</p></details>
 <details><summary>문제는 실제 시험에 나온 건가요?</summary><p>아니요. 실제 NCLEX 문항은 공개되지 않아요. 여기 문제는 개념을 바탕으로 직접 만든 연습문제예요.</p></details>
 <details><summary>틀린 내용을 발견하면 어떻게 하나요?</summary><p>카카오톡 공부방에 알려 주세요. 공식 자료로 다시 확인한 뒤 고치고 확인한 날짜를 새로 적어요.</p></details>
@@ -179,6 +180,7 @@ dd{margin:0}
     const correct = event.target.value === 'subjective';
     const explanation = '환자가 직접 말한 증상은 주관적 자료예요. 측정한 혈압처럼 관찰하거나 측정할 수 있는 값은 객관적 자료예요.';
     feedback.textContent = (correct ? '맞았어요. ' : '정답은 주관적 자료예요. ') + explanation;
+    document.querySelector('#sample-more').hidden = false;
   });
 </script>
 </body>
