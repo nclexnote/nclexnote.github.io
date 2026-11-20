@@ -192,13 +192,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://rnworld.kr/notes/uap-delegation/</loc>
-    <lastmod>2026-11-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
+    <url>
     <loc>https://rnworld.kr/notes/review-42/</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
