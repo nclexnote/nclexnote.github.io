@@ -17,6 +17,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"엔클렉스(NCLEX) 무료 문제 | 영어로 풀고, 한국어로 이해","description":"엔클렉스 무료 연습 문제. 영어로 풀고 한국어 해설과 1초 암기로 이해해요.","url":"https://rnworld.kr/quiz/","inLanguage":"ko","isAccessibleForFree":true,"author":{"@type":"Person","name":"해랑쌤"}}</script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="da424e0e-cb8e-4b82-b3e0-ac208da6cc70" data-domains="rnworld.kr" data-do-not-track="true"></script>
+<!-- 방문 통계 2: 구글 애널리틱스(GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8B6P4M1SQ8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8B6P4M1SQ8');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -185,7 +188,7 @@ footer .moreb{display:flex;flex-direction:column;gap:6px;padding:2px 0 8px}
       <div class="moreb">
         <span>점수는 복습용이에요. 해설은 공부용으로 줄여 쓴 것이고, 현장에서는 처방과 기관 지침을 따라요.</span>
         <span>푼 기록은 이 브라우저에만 남아요(카카오톡 안 화면과 바깥 브라우저는 따로).</span>
-        <span>방문 통계: 방문 수와 단추를 누른 횟수만 Umami로 세요. 쿠키 없음 · 이름·고른 답·점수는 보내지 않아요 · 미국 서버에 최대 6개월 보관.</span>
+        <span>방문 통계: 방문 수와 단추를 누른 횟수만 세요(Umami · 구글 애널리틱스). 이름·고른 답·점수는 보내지 않아요 · 구글 애널리틱스는 다시 오신 분을 가리려고 쿠키(_ga)를 써요 · 해외 서버에 보관(Umami 6개월 · 구글 최대 14개월).</span>
       </div>
     </details>
     <span>틀린 곳은 <a href="https://open.kakao.com/o/gJbIrbXi">카카오톡 공부방</a>으로 · <a href="/">홈</a> · <a href="https://blog.naver.com/nclexnote">블로그</a> · <a href="https://www.youtube.com/@%EA%B7%80%EB%A1%9C%EB%93%A3%EB%8A%94%EC%97%94%ED%81%B4%EB%A0%89%EC%8A%A4">유튜브</a> · 문제 확인 2026-11-18 · 제휴 없음</span>
@@ -208,7 +211,7 @@ const S="https://youtube.com/shorts/", B="https://blog.naver.com/nclexnote/";
 const Q=D.Q, SETS=D.SETS, byNo={}; Q.forEach(x=>byNo[x.no]=x); document.querySelectorAll(".qn").forEach(e=>e.textContent=Q.length);
 const KEY="haerang-quiz-v2";
 // 방문 통계(Umami): 사건 이름만 보내요. 답·점수·문제 번호는 보내지 않아요
-function tk(n){ try{ if(window.umami&&umami.track) umami.track(n); }catch(e){} }
+function tk(n){ try{ if(window.umami&&umami.track) umami.track(n); }catch(e){} try{ if(window.gtag) gtag("event",n); }catch(e){} }
 // 저장된 기록은 모양과 값의 범위를 확인한 것만 받아요
 function clean(s){
   const o={ans:{},star:{},ord:{},fs:18,lang:"ko"}; if(!s||typeof s!=="object"||Array.isArray(s)) return o;
@@ -235,7 +238,7 @@ function links(x){ return (x.s?`<a href="${S+x.s}">1분 영상으로 보기</a>`
 // 휴대폰 뒤로가기: 풀기·결과 화면에서 누르면 페이지를 떠나지 않고 처음 화면으로
 let deep=false;
 function enter(){ if(!deep){ try{history.pushState({quiz:1},""); deep=true;}catch(e){} } }
-function leave(){ if(run.one){ run.one=false; try{history.replaceState(null,"",location.pathname+location.search);}catch(e){} home(); return; } home(); if(deep){ deep=false; try{history.back();}catch(e){} } }
+function leave(){ if(run.one){ run.one=false; try{history.replaceState(null,"",location.pathname+location.search);}catch(e){} } home(); if(deep){ deep=false; try{history.back();}catch(e){} } }
 window.addEventListener("popstate",()=>{ if(deep){ deep=false; home(); } });
 function applyFs(){ document.documentElement.style.setProperty("--fs",st.fs+"px"); document.querySelectorAll("[data-fs]").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.fs===st.fs)); }
 
@@ -266,7 +269,8 @@ function startSet(s){ const list=SETS[s], again=list.every(isDone);
   if(again){ list.forEach(n=>{delete st.ord[n];}); save(); }
   run={list:list.slice(),i:again?0:Math.max(0,list.findIndex(n=>!isDone(n))),label:`묶음 ${s}`+(again?" · 다시 풀기":""),setNo:s,re:again?{}:null}; enter(); play(); }
 function startReview(nos,label){ tk("retry_wrong"); nos.forEach(n=>{delete st.ord[n];}); save(); run={list:nos.slice(),i:0,label:label,setNo:0,re:{}}; enter(); play(); }
-function startOne(n){ if(!byNo[n]) return; run={list:[n],i:0,label:"",setNo:0,re:{},one:true}; play(); }
+// 한 문제만 풀기(#q011 처럼 주소로 들어올 때): 정답·해설을 가린 채 그 문제 하나만
+function startOne(n){ if(!byNo[n]) return false; run={list:[n],i:0,label:"",setNo:0,re:{},one:true}; play(); return true; }
 function play(keep){
   const n=run.list[run.i], x=byNo[n], a=rAns(n), done=a!==undefined, ok=done&&a===x.a, en=st.lang==="en", ord=order(n);
   document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===st.lang));
@@ -343,7 +347,7 @@ document.addEventListener("click",e=>{ const a=e.target.closest&&e.target.closes
 home();
 </script>
 <script>
-(function(){function go(){var m=/^#q(\d{3})$/.exec(location.hash);if(!m)return;if(typeof byNo==='undefined'||!byNo[m[1]])return;startOne(m[1]);}window.addEventListener('hashchange',go);window.addEventListener('load',function(){setTimeout(go,0);});})();
+(function(){function go(){var m=/^#q(\d{3})$/.exec(location.hash);if(!m)return;if(typeof startOne==='function')startOne(m[1]);}window.addEventListener('hashchange',go);window.addEventListener('load',function(){setTimeout(go,0);});})();
 </script>
 </body>
 </html>
