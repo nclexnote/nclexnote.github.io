@@ -19,6 +19,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rnworld.kr/notes/areas/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://rnworld.kr/notes/delegation/</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
