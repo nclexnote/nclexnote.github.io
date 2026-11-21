@@ -251,6 +251,19 @@ dd{margin:0}
     });
   }
   draw();
+
+  // 공부방·블로그·유튜브 링크 누름 세기 (Umami + 구글 애널리틱스)
+  function tk(n){
+    try{ if(window.umami&&umami.track) umami.track(n); }catch(_){}
+    try{ if(window.gtag) gtag("event",n); }catch(_){}
+  }
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]"); if(!a) return;
+    if(a.href.indexOf("open.kakao.com")>=0) tk("kakao_click");
+    else if(a.href.indexOf("blog.naver.com")>=0) tk("blog_click");
+    else if(a.href.indexOf("youtube.com")>=0) tk("youtube_click");
+    else if(a.getAttribute("href")==="/quiz/") tk("home_to_quiz");
+  });
 })();
 </script>
 </body>
