@@ -20,57 +20,78 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8B6P4M1SQ8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8B6P4M1SQ8');</script>
 <style>
-:root{color-scheme:light;--ink:#191916;--paper:#fffefa;--yellow:#ffd400;--soft:#fff5c3;--muted:#57554a;--line:#dedbd0}
+:root{color-scheme:light;--ink:#1a202c;--paper:#fffefa;--yellow:#ffd400;--soft:#fff5c3;--muted:#4a5568;--line:#ded9cc;--edge:#64748b;--blue:#00529b;--blue-d:#003b71;--blue-soft:#edf4fc;--good:#166534;--good-bg:#ecfdf5;--bad:#b91c1c;--bad-bg:#fef2f2}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.65 "Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
 a{color:inherit;text-underline-offset:.24em}
-:focus-visible{outline:3px solid #795500;outline-offset:4px}
+:focus-visible{outline:3px solid var(--blue-d);outline-offset:3px}
 h1,h2,h3,p{margin:0}
 h1,h2,h3{line-height:1.2;letter-spacing:-.045em}
 h1{font-size:clamp(1.6rem,8.4vw,3.4rem)}
 h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1.35rem}
 h3{font-size:1.25rem}
 .wrap{width:min(100% - 2rem,68rem);margin-inline:auto}
-header{background:var(--yellow);border-bottom:1px solid #19191635}
-header .wrap{padding-block:.85rem;font-weight:850;text-decoration:none}
+/* 머리띠 = 노란색 유지(유튜브·블로그와 같은 색) */
+.nav{background:var(--yellow);border-bottom:2px solid var(--ink)}
+.nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:.15rem .9rem;padding-block:.5rem}
+.brand{font-weight:850;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;margin-right:auto;padding-right:.6rem}
+.nav a:not(.brand){min-height:44px;display:inline-flex;align-items:center;font-weight:700;font-size:.92rem;text-decoration:none;border-bottom:2px solid transparent}
+.nav a:not(.brand):hover{border-bottom-color:var(--ink)}
 .hero{background:var(--yellow);border-bottom:2px solid var(--ink)}
 .hero .wrap{display:grid;gap:1.6rem;padding-block:1.1rem 2.5rem}
 .kicker{font-size:.85rem;font-weight:800;margin-bottom:.65rem}
 .intro p:last-of-type{margin-top:1rem;max-width:31rem}
-.quiz{background:var(--paper);border:2px solid var(--ink);border-radius:1rem;box-shadow:4px 4px 0 var(--ink);padding:1.1rem;min-width:0}
-.quiz h2{font-size:1rem;margin-bottom:.65rem;letter-spacing:0}
+/* 예시 문제 카드 */
+.quiz{background:#fff;border:2px solid var(--ink);border-radius:.5rem;box-shadow:4px 4px 0 var(--ink);padding:1.1rem;min-width:0}
+.qtop{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.7rem}
+.quiz h2{font-size:1rem;margin:0;letter-spacing:0}
+.sub{padding:2px 8px;border-radius:4px;background:var(--yellow);font-weight:700;font-size:.78rem}
+.seg{display:inline-flex;border:2px solid var(--blue);border-radius:.4rem;overflow:hidden;margin-left:auto}
+.seg button{border:0;background:#fff;color:var(--blue);min-height:44px;padding:4px 12px;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--blue);color:#fff}
 fieldset{border:0;padding:0;margin:0;min-width:0}
 legend{font-weight:750;padding:0;margin-bottom:.7rem}
-.option{display:flex;align-items:center;gap:.6rem;min-height:44px;padding:.4rem .65rem;border:1px solid var(--line);border-radius:.55rem;margin-top:.45rem;cursor:pointer}
-.option:has(input:checked){background:var(--soft);border-color:var(--ink)}
-input{accent-color:var(--ink)}
-.feedback:not(:empty){margin-top:.8rem;padding:.65rem;background:var(--soft);border-radius:.55rem}
-.quiz small{display:block;margin-top:.6rem;color:var(--muted)}
+.option{display:flex;align-items:flex-start;gap:.6rem;width:100%;text-align:left;min-height:48px;padding:.6rem .7rem;border:2px solid var(--edge);border-radius:.5rem;margin-top:.5rem;background:#fff;font:inherit;color:inherit;cursor:pointer}
+.option:hover:not(:disabled){border-color:var(--blue);background:var(--blue-soft)}
+.option:disabled{cursor:default}
+.option b{font-variant-numeric:tabular-nums;flex:none}
+.option.right{border-color:var(--good);background:var(--good-bg)}
+.option.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.mk{display:inline-block;font-style:normal;font-weight:700;font-size:.74rem;padding:1px 7px;border-radius:4px;margin-bottom:3px;color:#fff}
+.mk.ok{background:var(--good)}.mk.no{background:var(--bad)}
+.feedback:not(:empty){margin-top:.85rem;padding-top:.8rem;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:.5rem;font-size:.97rem}
+.v{font-weight:700}.v.ok{color:var(--good)}.v.no{color:var(--bad)}
+.memo{background:var(--yellow);border-radius:.3rem;padding:.5rem .65rem;font-weight:700}
+.quiz small{display:block;margin-top:.7rem;color:var(--muted)}
 section:not(.hero){padding-block:2.35rem;border-bottom:1px solid var(--line)}
 .rules{list-style:none;padding:0;margin:0;display:grid;gap:.8rem}
-.rules li{padding:.1rem 0 .1rem .85rem;border-left:4px solid var(--yellow)}
+.rules li{padding:.1rem 0 .1rem .85rem;border-left:4px solid var(--blue)}
 .rules strong,.rules span{display:block}
 .rules span,.card p,.note,dd{color:var(--muted)}
 .grid{display:grid;gap:.8rem}
-.card{border:1px solid var(--line);border-radius:.85rem;padding:1.05rem;min-width:0}
+.card{border:1px solid var(--line);border-radius:.6rem;padding:1.05rem;min-width:0}
 .card p{margin-top:.45rem}
-.card a{display:inline-flex;align-items:center;min-height:44px;font-weight:750;margin-top:.35rem}
+.card a{display:inline-flex;align-items:center;min-height:44px;font-weight:750;color:var(--blue);margin-top:.35rem}
 .channel{background:#fff}
-.callout{background:var(--soft)}
+.callout{background:var(--blue-soft)}
 .callout h2{margin-bottom:.65rem}
-.action{display:inline-flex;align-items:center;min-height:44px;background:var(--ink);color:white;border-radius:.5rem;text-decoration:none;font-weight:750;padding:.55rem .9rem;margin-top:.85rem}
-.action:hover{background:#3e3b29}
+.action{display:inline-flex;align-items:center;min-height:48px;background:var(--blue);color:#fff;border-radius:.5rem;text-decoration:none;font-weight:750;padding:.55rem 1rem;margin-top:.85rem}
+.action:hover{background:var(--blue-d)}
 .hero .action{margin-right:.5rem;min-width:13rem;justify-content:center}
-.action.line{background:#fff;color:#b3001b;box-shadow:inset 0 0 0 3px #b3001b}
-.action.line:hover{background:#fff0f0}
+.action.line{background:#fff;color:var(--blue);box-shadow:inset 0 0 0 3px var(--blue)}
+.action.line:hover{background:var(--blue-soft)}
 .action[hidden]{display:none}
-.status{margin-top:.55rem;color:var(--muted)}
+/* 준비 중 알림 배너 하나로 */
+.soon{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;margin-top:1rem;padding:1rem;border:2px dashed var(--edge);border-radius:.6rem}
+.soon p{color:var(--muted);flex:1 1 16rem;min-width:0}
+.soon .action{margin-top:0}
 details{border-top:1px solid var(--line);padding:.55rem 0}
 summary{cursor:pointer;min-height:44px;padding:.5rem 0;font-weight:750}
 details p{padding:0 0 .65rem 1rem;color:var(--muted)}
 footer{padding:2rem 0;background:var(--ink);color:var(--paper)}
 footer h2{font-size:1.25rem;margin-bottom:.75rem}
-footer p,footer dd{color:#e1ddcf}
+footer p,footer dd{color:#e2e6ec}
+footer p+p{margin-top:.6rem}
 dl{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:.85rem;margin:0;font-size:.9rem}
 dd{margin:0}
 @media(min-width:42rem){.wrap{width:min(100% - 4rem,68rem)}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.rules{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem}section:not(.hero){padding-block:3.2rem}}
@@ -78,7 +99,13 @@ dd{margin:0}
 </style>
 </head>
 <body>
-<header><div class="wrap">귀로 듣는 엔클렉스 노트</div></header>
+<nav class="nav" aria-label="주요 메뉴"><div class="wrap">
+<a class="brand" href="/">귀로 듣는 엔클렉스 노트</a>
+<a href="/quiz/">무료 연습문제</a>
+<a href="/notes/">요약노트</a>
+<a href="https://blog.naver.com/nclexnote">블로그 <span aria-hidden="true">↗</span></a>
+<a href="https://www.youtube.com/@%EA%B7%80%EB%A1%9C%EB%93%A3%EB%8A%94%EC%97%94%ED%81%B4%EB%A0%89%EC%8A%A4">유튜브 <span aria-hidden="true">↗</span></a>
+</div></nav>
 <main>
 <section class="hero" aria-labelledby="headline">
 <div class="wrap">
@@ -90,16 +117,22 @@ dd{margin:0}
 <a class="action line" href="/notes/">요약노트 보기 <span aria-hidden="true">&nbsp;→</span></a>
 </div>
 <div class="quiz">
+<div class="qtop">
 <h2>바로 풀어보는 예시 문제</h2>
+<span class="sub">감염관리</span>
+<div class="seg" role="group" aria-label="문제 언어 고르기">
+<button type="button" data-lang="ko" aria-pressed="true">한글</button>
+<button type="button" data-lang="en" aria-pressed="false">English</button>
+</div>
+</div>
 <fieldset id="sample-question">
-<legend><span lang="en">A client says, “I feel dizzy.” How should the nurse classify this information?</span></legend>
-<label class="option"><input type="radio" name="sample" value="subjective"> <span lang="en">Subjective data</span></label>
-<label class="option"><input type="radio" name="sample" value="objective"> <span lang="en">Objective data</span></label>
+<legend id="stem">폐결핵이 의심되는 환자가 입원했어요. 어떤 격리 주의를 적용할까요?</legend>
+<div id="opts"></div>
 </fieldset>
-<p class="feedback" id="sample-feedback" aria-live="polite" aria-atomic="true"></p>
+<div class="feedback" id="sample-feedback" role="status" aria-live="polite"></div>
 <a class="action" id="sample-more" href="/quiz/" hidden>이런 문제 더 풀기 <span aria-hidden="true">&nbsp;→</span></a>
-<noscript><details><summary>정답과 해설 보기</summary><p>정답은 주관적 자료예요. 환자가 직접 말한 증상을 기록한 내용이에요.</p></details></noscript>
-<small>개념 확인용으로 직접 만든 예시입니다.</small>
+<noscript><details><summary>정답과 해설 보기</summary><p>정답은 공기주의(N95 마스크 + 음압 격리실)예요. 결핵균은 아주 작은 입자에 실려 공기 중에 오래 떠다녀서 일반 마스크로는 막지 못해요.</p></details></noscript>
+<small>귀로 듣는 엔클렉스 노트가 직접 만든 연습문제예요. 실제 시험 문항이 아니에요.</small>
 </div>
 </div>
 </section>
@@ -127,11 +160,10 @@ dd{margin:0}
 </div>
 </section>
 
-
 <section class="callout" aria-labelledby="signup-heading">
 <div class="wrap">
 <h2 id="signup-heading">새 자료 소식 받기</h2>
-<p>서류 준비팩과 오디오·원고 묶음을 준비하고 있어요. 열리면 카카오톡 공부방에서 가장 먼저 알려 드려요. 틀린 내용 제보도 여기로 주세요.</p>
+<p>새 연습문제와 요약노트가 올라오면 카카오톡 공부방에서 가장 먼저 알려 드려요. 틀린 내용 제보도 여기로 주세요.</p>
 <!-- 무료 가입 페이지가 생기면 아래 주소와 문구를 그 페이지로 바꾸세요. -->
 <a class="action" id="signup-link" href="https://open.kakao.com/o/gJbIrbXi">카카오톡 공부방 들어가기</a>
 </div>
@@ -141,11 +173,15 @@ dd{margin:0}
 <div class="wrap">
 <h2 id="resources">학습 자료</h2>
 <div class="grid">
-<article class="card"><h3>무료</h3><p>블로그의 시험 제도·서류 안내, 유튜브 오디오, 과목별 연습문제.</p></article>
-<article class="card"><h3>서류 준비팩</h3><p>뉴욕주 응시 준비 체크리스트, 가상 정보로 쓴 작성 예시, 학교 요청 메일 양식, 제출 일정표.</p><p class="status">준비 중</p></article>
-<article class="card"><h3>오디오·원고 묶음</h3><p>주제별 한국어 오디오와 읽을 수 있는 원고를 묶어 복습할 때 다시 찾아볼 수 있어요.</p><p class="status">준비 중</p></article>
+<article class="card"><h3>연습문제</h3><p>과목별로 풀고 한국어 해설과 1초 암기로 정리해요.</p><a href="/quiz/">풀러 가기 <span aria-hidden="true">&nbsp;→</span></a></article>
+<article class="card"><h3>요약노트</h3><p>주제별 핵심만 짧게 읽고, 바로 이어서 문제를 풀어요.</p><a href="/notes/">읽으러 가기 <span aria-hidden="true">&nbsp;→</span></a></article>
+<article class="card"><h3>서류·제도 안내</h3><p>응시 절차와 준비 서류를 공식 안내와 확인일을 적어 정리해요.</p><a href="https://blog.naver.com/nclexnote">블로그에서 보기 <span aria-hidden="true">&nbsp;↗</span></a></article>
 </div>
-<!-- 상품 안내 주소를 받으면 이 영역에 공통 외부 링크 한 개를 넣으세요. -->
+<!-- 상품 안내 주소를 받으면 아래 배너의 주소와 문구를 그 페이지로 바꾸세요. -->
+<div class="soon">
+<p><strong>서류 준비팩</strong>과 <strong>오디오·원고 묶음</strong>을 준비하고 있어요. 열리면 공부방에서 가장 먼저 알려 드려요.</p>
+<a class="action" href="https://open.kakao.com/o/gJbIrbXi">열리면 알림 받기</a>
+</div>
 </div>
 </section>
 
@@ -164,6 +200,7 @@ dd{margin:0}
 <h2 id="business">귀로 듣는 엔클렉스 노트</h2>
 <p>학습 보조 자료예요. 서류와 규정은 바뀔 수 있으니 실행 전에 공식 사이트에서 확인해 주세요.</p>
 <p>방문 통계: 방문 수와 누른 횟수만 세요(Umami · 구글 애널리틱스). 구글 애널리틱스는 다시 오신 분을 가리려고 쿠키(_ga)를 써요. 이름·입력한 내용은 보내지 않아요.</p>
+<p>개인이 만들어 운영하는 학습 사이트예요. 시험 시행 기관이나 다른 학습 서비스와 관련이 없고, 문항과 해설은 모두 직접 만들었어요.</p>
 <!-- 유료 판매를 시작하기 전에 아래 주석을 풀고 실제 사업자 정보로 채우세요. -->
 <!--
 <dl>
@@ -178,14 +215,57 @@ dd{margin:0}
 </div>
 </footer>
 <script>
-  const sample = document.querySelector('#sample-question');
-  const feedback = document.querySelector('#sample-feedback');
-  sample.addEventListener('change', (event) => {
-    const correct = event.target.value === 'subjective';
-    const explanation = '환자가 직접 말한 증상은 주관적 자료예요. 측정한 혈압처럼 관찰하거나 측정할 수 있는 값은 객관적 자료예요.';
-    feedback.textContent = (correct ? '맞았어요. ' : '정답은 주관적 자료예요. ') + explanation;
-    document.querySelector('#sample-more').hidden = false;
+(function(){
+  // 예시 문제 한 문항 — /quiz/ 의 #002 와 같은 내용이에요
+  var X={
+    q:"폐결핵이 의심되는 환자가 입원했어요. 어떤 격리 주의를 적용할까요?",
+    eq:"A client is admitted with suspected pulmonary tuberculosis. Which precaution should the nurse implement?",
+    o:["표준주의만 적용","접촉주의 (가운과 장갑)","비말주의 (수술용 마스크)","공기주의 (N95 마스크 + 음압 격리실)"],
+    eo:["Standard precautions only","Contact precautions with gown and gloves","Droplet precautions with a surgical mask","Airborne precautions with an N95 respirator and a negative-pressure room"],
+    a:3,
+    why:"결핵균은 아주 작은 입자에 실려 공기 중에 오래 떠다녀요. 일반 마스크로는 막지 못해서 N95 마스크와 공기가 밖으로 새지 않는 음압 격리실이 필요해요.",
+    m:"결핵 = N95 + 음압방!"
+  };
+  var lang="ko", picked=null;
+  var stem=document.getElementById("stem"), opts=document.getElementById("opts"),
+      fb=document.getElementById("sample-feedback"), more=document.getElementById("sample-more");
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function draw(){
+    var en=lang==="en";
+    stem.textContent=en?X.eq:X.q;
+    if(en){stem.setAttribute("lang","en");}else{stem.removeAttribute("lang");}
+    var list=en?X.eo:X.o, h="";
+    for(var i=0;i<list.length;i++){
+      var cls="option", mk="";
+      if(picked!==null){
+        if(i===X.a){cls+=" right"; mk='<em class="mk ok">정답</em><br>';}
+        else if(i===picked){cls+=" wrong"; mk='<em class="mk no">내가 고른 답</em><br>';}
+      }
+      h+='<button type="button" class="'+cls+'" data-i="'+i+'"'+(picked!==null?" disabled":"")+'>'+
+         '<b>'+(i+1)+'</b><span>'+mk+'<span'+(en?' lang="en"':'')+'>'+esc(list[i])+'</span></span></button>';
+    }
+    opts.innerHTML=h;
+    if(picked!==null){
+      var ok=picked===X.a;
+      fb.innerHTML='<span class="v '+(ok?"ok":"no")+'">'+(ok?"맞았어요.":"아쉬워요. ‘정답’ 표시가 붙은 보기가 정답이에요.")+'</span>'+
+                   '<span><b>왜?</b> '+esc(X.why)+'</span><span class="memo">1초 암기: '+esc(X.m)+'</span>';
+      more.hidden=false;
+    }
+  }
+  opts.addEventListener("click",function(e){
+    var b=e.target.closest(".option");
+    if(b&&picked===null){ picked=+b.dataset.i; draw(); }
   });
+  var segs=document.querySelectorAll("[data-lang]");
+  for(var k=0;k<segs.length;k++){
+    segs[k].addEventListener("click",function(e){
+      lang=e.currentTarget.dataset.lang;
+      for(var j=0;j<segs.length;j++) segs[j].setAttribute("aria-pressed",segs[j].dataset.lang===lang);
+      draw();
+    });
+  }
+  draw();
+})();
 </script>
 </body>
 </html>
