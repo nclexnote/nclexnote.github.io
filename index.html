@@ -10,7 +10,7 @@
   <meta property="og:title" content="귀로 듣는 엔클렉스 노트 | RNWorld">
   <meta property="og:description" content="출퇴근길엔 귀로 듣고, 쉬는 시간엔 한 문제. 공식 출처와 확인일을 지키는 한국어 NCLEX 학습 노트.">
   <meta property="og:url" content="https://rnworld.kr/">
-  <meta property="og:image" content="https://rnworld.kr/og.png">
+  <meta property="og:image" content="https://rnworld.kr/og.png?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="귀로 듣는 엔클렉스 노트">
@@ -565,6 +565,26 @@
       .topbar { position: static; }
       html { scroll-padding-top: 0; }
       .menu-btn { display: inline-flex; }
+      /* 글자 크기 조절은 ☰ 메뉴 안으로 — 윗줄을 한 줄로 유지 */
+      .size-ctrl {
+        display: none;
+        order: 4;
+        width: 100%;
+        margin-top: 6px;
+        justify-content: stretch;
+      }
+      .topbar.open .size-ctrl { display: inline-flex; }
+      .size-ctrl button { flex: 1; }
+      .size-label {
+        display: none;
+        order: 3;
+        width: 100%;
+        margin-top: 8px;
+        font-size: .78rem;
+        font-weight: 700;
+        opacity: .85;
+      }
+      .topbar.open .size-label { display: block; }
       .nav-links {
         display: none;
         order: 3;
@@ -603,6 +623,7 @@
         <!-- 아래 #kakao-openchat 부분을 실제 카카오톡 오픈채팅 주소로 바꾸세요 -->
         <a href="#kakao-openchat">공부방</a>
       </nav>
+      <span class="size-label" aria-hidden="true">글자 크기</span>
       <div class="size-ctrl" role="group" aria-label="글자 크기 조절">
         <button type="button" data-size="sm" aria-pressed="false">작게</button>
         <button type="button" data-size="md" aria-pressed="true">보통</button>
