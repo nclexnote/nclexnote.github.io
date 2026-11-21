@@ -351,7 +351,10 @@ $("resetBtn").onclick=()=>{ const b=$("resetBtn"), m=$("resetMsg");
   if(rz&&Date.now()-rz<6000){ rz=0; st.ans={}; st.star={}; st.ord={}; save(); home(); b.textContent="푼 기록 지우기"; m.textContent="기록을 지웠어요."; }
   else{ rz=Date.now(); b.textContent="한 번 더 누르면 지워요"; m.textContent="푼 답과 ★ 표시가 모두 지워지고 되돌릴 수 없어요.";
     setTimeout(()=>{ if(rz&&Date.now()-rz>=6000){ rz=0; b.textContent="푼 기록 지우기"; m.textContent=""; } },6200); } };
-document.addEventListener("click",e=>{ const a=e.target.closest&&e.target.closest("a[href]"); if(a&&a.href.indexOf(B)===0) tk("blog_click"); });
+document.addEventListener("click",e=>{ const a=e.target.closest&&e.target.closest("a[href]"); if(!a) return;
+  if(a.href.indexOf(B)===0) tk("blog_click");
+  else if(a.href.indexOf("open.kakao.com")>=0) tk("kakao_click");
+  else if(a.href.indexOf("youtube.com")>=0) tk("youtube_click"); });
 home();
 </script>
 <script>
