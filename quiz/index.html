@@ -235,7 +235,7 @@ function links(x){ return (x.s?`<a href="${S+x.s}">1분 영상으로 보기</a>`
 // 휴대폰 뒤로가기: 풀기·결과 화면에서 누르면 페이지를 떠나지 않고 처음 화면으로
 let deep=false;
 function enter(){ if(!deep){ try{history.pushState({quiz:1},""); deep=true;}catch(e){} } }
-function leave(){ home(); if(deep){ deep=false; try{history.back();}catch(e){} } }
+function leave(){ if(run.one){ run.one=false; try{history.replaceState(null,"",location.pathname+location.search);}catch(e){} home(); return; } home(); if(deep){ deep=false; try{history.back();}catch(e){} } }
 window.addEventListener("popstate",()=>{ if(deep){ deep=false; home(); } });
 function applyFs(){ document.documentElement.style.setProperty("--fs",st.fs+"px"); document.querySelectorAll("[data-fs]").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.fs===st.fs)); }
 
@@ -266,10 +266,11 @@ function startSet(s){ const list=SETS[s], again=list.every(isDone);
   if(again){ list.forEach(n=>{delete st.ord[n];}); save(); }
   run={list:list.slice(),i:again?0:Math.max(0,list.findIndex(n=>!isDone(n))),label:`묶음 ${s}`+(again?" · 다시 풀기":""),setNo:s,re:again?{}:null}; enter(); play(); }
 function startReview(nos,label){ tk("retry_wrong"); nos.forEach(n=>{delete st.ord[n];}); save(); run={list:nos.slice(),i:0,label:label,setNo:0,re:{}}; enter(); play(); }
+function startOne(n){ if(!byNo[n]) return; run={list:[n],i:0,label:"",setNo:0,re:{},one:true}; play(); }
 function play(keep){
   const n=run.list[run.i], x=byNo[n], a=rAns(n), done=a!==undefined, ok=done&&a===x.a, en=st.lang==="en", ord=order(n);
   document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===st.lang));
-  $("pos").textContent=`${run.label} · ${run.i+1} / ${run.list.length}`; $("posBar").style.width=(run.list.filter(rDone).length/run.list.length*100)+"%";
+  $("pos").textContent=run.one?"한 문제 풀기":`${run.label} · ${run.i+1} / ${run.list.length}`; $("posBar").style.width=(run.list.filter(rDone).length/run.list.length*100)+"%";
   let h=`<article class="q"><div class="qh"><span class="num">#${x.no}</span><span class="sub">${esc(x.sub)}</span><span>${esc(x.t)}</span>`+
     `<button type="button" class="star" id="starBtn" aria-pressed="${!!st.star[n]}">★ 헷갈려요</button></div>`+
     `<p class="stem" id="stem" tabindex="-1"${en?' lang="en"':''}>${esc(en?x.eq:x.q)}</p><div class="opts">`;
@@ -280,13 +281,13 @@ function play(keep){
   if(done) h+=`<div class="exp"><span class="v ${ok?"ok":"no"}">${ok?"맞았어요.":"아쉬워요. ‘정답’ 표시가 붙은 보기가 정답이에요."}</span><span><b>왜?</b> ${esc(x.why)}</span>`+
     `<span class="memo">1초 암기: ${esc(x.m)}</span><span>${links(x)}</span></div>`;
   $("card").innerHTML=h+`</div></article>`;
-  const last=!run.list.some((m,k)=>k>run.i&&!rDone(m)), nb=$("nextBtn"); nb.disabled=!done; nb.textContent=!done?"보기를 골라 주세요":(last?"결과 보기":"다음 문제");
+  const last=!run.list.some((m,k)=>k>run.i&&!rDone(m)), nb=$("nextBtn"); nb.disabled=!done; nb.textContent=!done?"보기를 골라 주세요":(run.one?"전체 문제 풀기":(last?"결과 보기":"다음 문제"));
   $("starBtn").onclick=e=>{ if(st.star[n]) delete st.star[n]; else st.star[n]=true; save(); e.currentTarget.setAttribute("aria-pressed",!!st.star[n]); };
   show("play",keep);
   if(!keep){ try{$("stem").focus({preventScroll:true});}catch(e){} }
 }
 $("card").addEventListener("click",e=>{const o=e.target.closest(".opt"); if(o&&!o.disabled){ const n=run.list[run.i], v=+o.dataset.i; if(run.re) run.re[n]=v; st.ans[n]=v; save(); play(true); const ex=document.querySelector(".exp"); if(ex&&ex.scrollIntoView) ex.scrollIntoView({block:"nearest"});}});
-$("nextBtn").onclick=()=>{ const j=run.list.findIndex((n,k)=>k>run.i&&!rDone(n)); if(j>=0){run.i=j; play();} else { if(run.setNo) tk("quiz_complete"); setResult(); } };
+$("nextBtn").onclick=()=>{ if(run.one){ leave(); return; } const j=run.list.findIndex((n,k)=>k>run.i&&!rDone(n)); if(j>=0){run.i=j; play();} else { if(run.setNo) tk("quiz_complete"); setResult(); } };
 $("homeBtn").onclick=leave;
 document.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>{st.lang=b.dataset.lang; save(); play(true);});
 // 결과의 "다시 볼 문제": 누르면 정답과 해설이 펼쳐져요
@@ -342,7 +343,7 @@ document.addEventListener("click",e=>{ const a=e.target.closest&&e.target.closes
 home();
 </script>
 <script>
-(function(){function go(){var m=/^#q(\d{3})$/.exec(location.hash);if(!m)return;var e=document.querySelector('details.it[data-no="'+m[1]+'"]');if(!e)return;for(var p=e;p;p=p.parentElement){if(p.tagName==='DETAILS')p.open=true;}e.scrollIntoView({block:'start'});}window.addEventListener('hashchange',go);window.addEventListener('load',function(){setTimeout(go,0);});})();
+(function(){function go(){var m=/^#q(\d{3})$/.exec(location.hash);if(!m)return;if(typeof byNo==='undefined'||!byNo[m[1]])return;startOne(m[1]);}window.addEventListener('hashchange',go);window.addEventListener('load',function(){setTimeout(go,0);});})();
 </script>
 </body>
 </html>
