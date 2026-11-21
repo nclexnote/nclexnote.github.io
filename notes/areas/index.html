@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#00529B">
 <title>엔클렉스(NCLEX-RN) 시험 영역별 요약노트 | 귀로 듣는 엔클렉스 노트</title>
 <meta name="description" content="미국 간호사 시험은 8개 영역에서 문제가 나와요. 영역마다 출제 비중과, 지금 사이트에 있는 학습 항목 수를 함께 적었어요.">
 <link rel="canonical" href="https://rnworld.kr/notes/areas/">
@@ -17,26 +18,28 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8B6P4M1SQ8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-8B6P4M1SQ8');</script>
 <style>
-:root{color-scheme:light;--ink:#191916;--paper:#fffefa;--yellow:#ffd400;--soft:#fff5c3;--muted:#57554a;--line:#dedbd0}
+:root{color-scheme:light;--ink:#1a202c;--paper:#f5f7fa;--card:#ffffff;--yellow:#ffd400;--soft:#edf4fc;--muted:#4a5568;--line:#e2e8f0;--blue:#00529b;--blue-d:#003b71;--edge:#64748b;--hdr:#00529b;--on-hdr:#ffffff;--hdr-sub:#dbeafe;--focus:#003b71}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.7 "Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
 a{color:inherit;text-underline-offset:.24em}
-:focus-visible{outline:3px solid #795500;outline-offset:4px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+header :focus-visible{outline-color:var(--yellow)}
 h1,h2,p,ul{margin:0}
 h1,h2{line-height:1.25;letter-spacing:-.04em}
 h1{font-size:clamp(1.6rem,7vw,2.6rem)}
 h2{font-size:1.15rem}
 .wrap{width:min(100% - 2rem,46rem);margin-inline:auto}
-header{background:var(--yellow);border-bottom:2px solid var(--ink)}
+header{background:var(--hdr);color:var(--on-hdr)}
+header .meta{color:var(--hdr-sub)}
 header .wrap{padding-block:.4rem 1.6rem}
 .home{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
-.kicker{font-size:.85rem;font-weight:800;margin:.4rem 0 .5rem}
+.kicker{display:inline-block;background:var(--yellow);color:#191916;font-size:.8rem;font-weight:800;padding:.2rem .6rem;border-radius:.4rem;margin:.5rem 0 .6rem}
 .lead{margin-top:.9rem}
 .area{padding-block:1.5rem;border-bottom:1px solid var(--line)}
 .ahead{display:flex;flex-wrap:wrap;align-items:baseline;gap:.15rem .5rem}
 .anums{font-size:.92rem;color:var(--muted);font-weight:700}
 .track{margin-top:.6rem;height:12px;background:var(--soft);border:1px solid var(--line);border-radius:999px;overflow:hidden}
-.track i{display:block;height:100%;background:var(--ink)}
+.track i{display:block;height:100%;background:var(--blue)}
 .list{list-style:none;padding:0;margin-top:.9rem;display:grid;gap:.5rem}
 .list a{display:flex;align-items:center;min-height:48px;padding:.5rem .9rem;border:1px solid var(--line);border-radius:.7rem;text-decoration:none;font-weight:700}
 footer{padding:1.6rem 0 2.4rem;color:var(--muted);font-size:.88rem}
