@@ -1,270 +1,905 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="한국 간호사를 위한 NCLEX 학습 노트. 출퇴근길 오디오, 무료 연습문제, 응시 서류 절차를 찾아보세요.">
-<title>귀로 듣는 엔클렉스 노트 | RNWorld</title>
-<link rel="canonical" href="https://rnworld.kr/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://rnworld.kr/">
-<meta property="og:title" content="귀로 듣는 엔클렉스 노트">
-<meta property="og:description" content="엔클렉스(NCLEX) 공부와 서류를 한곳에">
-<meta property="og:image" content="https://rnworld.kr/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="귀로 듣는 엔클렉스 노트">
-<meta name="twitter:card" content="summary_large_image">
-<script defer src="https://cloud.umami.is/script.js" data-website-id="da424e0e-cb8e-4b82-b3e0-ac208da6cc70" data-domains="rnworld.kr" data-do-not-track="true"></script>
-<!-- 방문 통계 2: 구글 애널리틱스(GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8B6P4M1SQ8"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8B6P4M1SQ8');</script>
-<style>
-:root{color-scheme:light;--ink:#1a202c;--paper:#fffefa;--yellow:#ffd400;--soft:#fff5c3;--muted:#4a5568;--line:#ded9cc;--edge:#64748b;--blue:#00529b;--blue-d:#003b71;--blue-soft:#edf4fc;--good:#166534;--good-bg:#ecfdf5;--bad:#b91c1c;--bad-bg:#fef2f2}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.65 "Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
-a{color:inherit;text-underline-offset:.24em}
-:focus-visible{outline:3px solid var(--blue-d);outline-offset:3px}
-h1,h2,h3,p{margin:0}
-h1,h2,h3{line-height:1.2;letter-spacing:-.045em}
-h1{font-size:clamp(1.6rem,8.4vw,3.4rem)}
-h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1.35rem}
-h3{font-size:1.25rem}
-.wrap{width:min(100% - 2rem,68rem);margin-inline:auto}
-/* 머리띠 = 노란색 유지(유튜브·블로그와 같은 색) */
-.nav{background:var(--yellow);border-bottom:2px solid var(--ink)}
-.nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:.15rem .9rem;padding-block:.5rem}
-.brand{font-weight:850;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;margin-right:auto;padding-right:.6rem}
-.nav a:not(.brand){min-height:44px;display:inline-flex;align-items:center;font-weight:700;font-size:.92rem;text-decoration:none;border-bottom:2px solid transparent}
-.nav a:not(.brand):hover{border-bottom-color:var(--ink)}
-.hero{background:var(--yellow);border-bottom:2px solid var(--ink)}
-.hero .wrap{display:grid;gap:1.6rem;padding-block:1.1rem 2.5rem}
-.kicker{font-size:.85rem;font-weight:800;margin-bottom:.65rem}
-.intro p:last-of-type{margin-top:1rem;max-width:31rem}
-/* 예시 문제 카드 */
-.quiz{background:#fff;border:2px solid var(--ink);border-radius:.5rem;box-shadow:4px 4px 0 var(--ink);padding:1.1rem;min-width:0}
-.qtop{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.7rem}
-.quiz h2{font-size:1rem;margin:0;letter-spacing:0}
-.sub{padding:2px 8px;border-radius:4px;background:var(--yellow);font-weight:700;font-size:.78rem}
-.seg{display:inline-flex;border:2px solid var(--blue);border-radius:.4rem;overflow:hidden;margin-left:auto}
-.seg button{border:0;background:#fff;color:var(--blue);min-height:44px;padding:4px 12px;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--blue);color:#fff}
-fieldset{border:0;padding:0;margin:0;min-width:0}
-legend{font-weight:750;padding:0;margin-bottom:.7rem}
-.option{display:flex;align-items:flex-start;gap:.6rem;width:100%;text-align:left;min-height:48px;padding:.6rem .7rem;border:2px solid var(--edge);border-radius:.5rem;margin-top:.5rem;background:#fff;font:inherit;color:inherit;cursor:pointer}
-.option:hover:not(:disabled){border-color:var(--blue);background:var(--blue-soft)}
-.option:disabled{cursor:default}
-.option b{font-variant-numeric:tabular-nums;flex:none}
-.option.right{border-color:var(--good);background:var(--good-bg)}
-.option.wrong{border-color:var(--bad);background:var(--bad-bg)}
-.mk{display:inline-block;font-style:normal;font-weight:700;font-size:.74rem;padding:1px 7px;border-radius:4px;margin-bottom:3px;color:#fff}
-.mk.ok{background:var(--good)}.mk.no{background:var(--bad)}
-.feedback:not(:empty){margin-top:.85rem;padding-top:.8rem;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:.5rem;font-size:.97rem}
-.v{font-weight:700}.v.ok{color:var(--good)}.v.no{color:var(--bad)}
-.memo{background:var(--yellow);border-radius:.3rem;padding:.5rem .65rem;font-weight:700}
-.quiz small{display:block;margin-top:.7rem;color:var(--muted)}
-section:not(.hero){padding-block:2.35rem;border-bottom:1px solid var(--line)}
-.card p,.note,dd{color:var(--muted)}
-.grid{display:grid;gap:.8rem}
-.card{border:1px solid var(--line);border-radius:.6rem;padding:1.05rem;min-width:0}
-.card p{margin-top:.45rem}
-.card a{display:inline-flex;align-items:center;min-height:44px;font-weight:750;color:var(--blue);margin-top:.35rem}
-.channel{background:#fff}
-.callout{background:var(--blue-soft)}
-.callout h2{margin-bottom:.65rem}
-.action{display:inline-flex;align-items:center;min-height:48px;background:var(--blue);color:#fff;border-radius:.5rem;text-decoration:none;font-weight:750;padding:.55rem 1rem;margin-top:.85rem}
-.action:hover{background:var(--blue-d)}
-.hero .action{margin-right:.5rem;min-width:13rem;justify-content:center}
-.action.line{background:#fff;color:var(--blue);box-shadow:inset 0 0 0 3px var(--blue)}
-.action.line:hover{background:var(--blue-soft)}
-.action[hidden]{display:none}
-/* 준비 중 알림 배너 하나로 */
-.soon{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;margin-top:1rem;padding:1rem;border:2px dashed var(--edge);border-radius:.6rem}
-.soon p{color:var(--muted);flex:1 1 16rem;min-width:0}
-.soon .action{margin-top:0}
-details{border-top:1px solid var(--line);padding:.55rem 0}
-summary{cursor:pointer;min-height:44px;padding:.5rem 0;font-weight:750}
-details p{padding:0 0 .65rem 1rem;color:var(--muted)}
-footer{padding:2rem 0;background:var(--ink);color:var(--paper)}
-footer h2{font-size:1.25rem;margin-bottom:.75rem}
-footer p,footer dd{color:#e2e6ec}
-footer p+p{margin-top:.6rem}
-dl{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:.85rem;margin:0;font-size:.9rem}
-dd{margin:0}
-@media(min-width:42rem){.wrap{width:min(100% - 4rem,68rem)}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}section:not(.hero){padding-block:3.2rem}}
-@media(min-width:55rem){h1{font-size:clamp(2.2rem,4.2vw,3.4rem)}.hero .wrap{grid-template-columns:1.22fr 1fr;align-items:center;gap:2.5rem;padding-block:2.8rem 3.8rem}.quiz{padding:1.4rem}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>귀로 듣는 엔클렉스 노트 | RNWorld</title>
+  <meta name="description" content="한국 간호사를 위한 NCLEX 학습 노트. 출퇴근길엔 귀로 듣고, 쉬는 시간엔 한 문제. 영어로 풀고 한국어로 이해해요.">
+  <link rel="canonical" href="https://rnworld.kr/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="귀로 듣는 엔클렉스 노트 | RNWorld">
+  <meta property="og:description" content="출퇴근길엔 귀로 듣고, 쉬는 시간엔 한 문제. 공식 출처와 확인일을 지키는 한국어 NCLEX 학습 노트.">
+  <meta property="og:url" content="https://rnworld.kr/">
+  <meta property="og:image" content="https://rnworld.kr/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="귀로 듣는 엔클렉스 노트">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#00529B">
+  <!-- 방문 통계 1: Umami -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="da424e0e-cb8e-4b82-b3e0-ac208da6cc70" data-domains="rnworld.kr" data-do-not-track="true"></script>
+  <!-- 방문 통계 2: 구글 애널리틱스(GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8B6P4M1SQ8"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8B6P4M1SQ8');</script>
+  <style>
+    :root {
+      --brand: #00529B;
+      --brand-dark: #003B71;
+      --brand-soft: #EDF4FC;
+      --brand-line: #C5DCF5;
+      --paper: #F5F7FA;
+      --card: #FFFFFF;
+      --ink: #1A202C;
+      --muted: #4A5568;
+      --line: #E2E8F0;
+      --ok: #15803D;
+      --ok-bg: #ECFDF5;
+      --ok-line: #A7F3D0;
+      --no: #B91C1C;
+      --no-bg: #FEF2F2;
+      --no-line: #FECACA;
+      --memo-bg: #FEF3C7;
+      --memo-line: #F59E0B;
+      --radius: 8px;
+      --base-size: 16px;
+      --edge: #64748B;
+      color-scheme: light;
+    }
+
+    html[data-size="sm"] { --base-size: 15px; }
+    html[data-size="md"] { --base-size: 16px; }
+    html[data-size="lg"] { --base-size: 18px; }
+
+    * { box-sizing: border-box; }
+    html { font-size: var(--base-size); scroll-behavior: smooth; scroll-padding-top: 96px; }
+    @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+    :focus-visible { outline: 3px solid #003B71; outline-offset: 2px; }
+    .topbar :focus-visible { outline-color: #FFFFFF; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--brand);
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(0, 59, 113, 0.18);
+    }
+    .topbar-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo { min-height: 44px; }
+    .logo:hover { text-decoration: none; opacity: 0.92; }
+    .logo-badge {
+      /* 채널 노란색 — 블로그·유튜브와 이어 주는 한 점 */
+      background: #FFD400;
+      color: #16150F;
+      border: 1px solid #FFD400;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.9rem;
+    }
+    .nav-links a {
+      color: #FFFFFF;
+      font-weight: 600;
+      padding: 4px 2px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.18);
+      color: #FFFFFF;
+      cursor: pointer;
+      padding: 0;
+    }
+    .menu-btn svg { width: 22px; height: 22px; }
+    .menu-btn .x { display: none; }
+    .topbar.open .menu-btn .x { display: block; }
+    .topbar.open .menu-btn .bars { display: none; }
+
+    .size-ctrl {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      padding: 2px;
+      gap: 2px;
+    }
+    .size-ctrl button {
+      border: 0;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      min-height: 44px;
+    }
+    .size-ctrl button[aria-pressed="true"] {
+      background: #FFFFFF;
+      color: var(--brand-dark);
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    .hero {
+      border-top: 4px solid var(--brand);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      border: 1px solid var(--brand-line);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 1.75rem;
+      line-height: 1.3;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 680px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 46px;
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--brand);
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background: var(--brand-dark);
+      text-decoration: none;
+    }
+    .btn-outline {
+      background: #FFFFFF;
+      color: var(--brand);
+      border-color: var(--brand);
+    }
+    .btn-outline:hover {
+      background: var(--brand-soft);
+      text-decoration: none;
+    }
+
+    .sec-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .sec-title {
+      margin: 0;
+      font-size: 1.25rem;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sec-sub {
+      margin: 4px 0 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .lang-seg {
+      display: inline-flex;
+      border: 1px solid var(--brand-line);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--brand-soft);
+    }
+    .lang-seg button {
+      border: 0;
+      background: transparent;
+      color: var(--brand-dark);
+      min-height: 44px;
+      padding: 6px 14px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .lang-seg button[aria-pressed="true"] {
+      background: var(--brand);
+      color: #FFFFFF;
+    }
+
+    .q-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .q-tag {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-weight: 700;
+      color: var(--brand-dark);
+    }
+    .q-stem {
+      margin: 0 0 16px;
+      font-size: 1.06rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .opts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .opt {
+      width: 100%;
+      text-align: left;
+      background: #FFFFFF;
+      border: 1px solid var(--edge);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.96rem;
+      color: var(--ink);
+      cursor: pointer;
+      transition: background-color 0.12s ease, border-color 0.12s ease;
+    }
+    .opt:hover:not(:disabled) {
+      background: var(--brand-soft);
+      border-color: var(--brand-line);
+    }
+    .opt:disabled { cursor: default; }
+    .opt-num {
+      flex: 0 0 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid var(--brand-line);
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .opt-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .opt-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: none;
+    }
+    .opt.is-ok {
+      background: var(--ok-bg);
+      border-color: var(--ok);
+    }
+    .opt.is-ok .opt-num {
+      background: var(--ok);
+      border-color: var(--ok);
+      color: #FFFFFF;
+    }
+    .opt.is-no {
+      background: var(--no-bg);
+      border-color: var(--no);
+    }
+    .opt.is-no .opt-num {
+      background: var(--no);
+      border-color: var(--no);
+      color: #FFFFFF;
+    }
+    .opt.show-note .opt-note { display: block; }
+
+    .exp-box {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--brand-line);
+      background: var(--brand-soft);
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .exp-box.open { display: flex; }
+    .exp-verdict {
+      font-weight: 800;
+      font-size: 0.98rem;
+    }
+    .exp-verdict.ok { color: var(--ok); }
+    .exp-verdict.no { color: var(--no); }
+    .memo-box {
+      background: var(--memo-bg);
+      border-left: 4px solid var(--memo-line);
+      padding: 10px 12px;
+      border-radius: 4px;
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 0.94rem;
+    }
+    .exp-foot {
+      margin: 2px 0 0;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+    .exp-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .mini-card {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.12s ease;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .step-badge {
+      align-self: flex-start;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: var(--brand-dark);
+      background: var(--brand-soft);
+      border: 1px solid var(--brand-line);
+      border-radius: 4px;
+      padding: 3px 8px;
+      margin-bottom: 10px;
+    }
+    .mini-card:hover { border-color: var(--brand-line); }
+    .mini-card > div { display: flex; flex-direction: column; }
+    .mini-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      color: var(--brand-dark);
+    }
+    .mini-card p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .mini-link {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--brand);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .banner {
+      background: var(--brand-soft);
+      border: 1px solid var(--brand-line);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .banner h2 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+      color: var(--brand-dark);
+    }
+    .banner p {
+      margin: 0;
+      font-size: 0.93rem;
+      color: var(--ink);
+      max-width: 600px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    details.faq-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #FFFFFF;
+      padding: 14px 16px;
+    }
+    details.faq-item summary {
+      min-height: 44px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--ink);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary::after {
+      content: "+";
+      font-size: 1.2rem;
+      color: var(--brand);
+      font-weight: 700;
+    }
+    details.faq-item[open] summary::after { content: "−"; }
+    details.faq-item p {
+      margin: 10px 0 0;
+      font-size: 0.93rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #FFFFFF;
+      padding: 24px 16px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .footer-inner strong { color: var(--ink); }
+
+    @media (max-width: 768px) {
+      /* 휴대폰에서는 상단 바를 고정하지 않아요 — 화면을 계속 차지해서요 */
+      .topbar { position: static; }
+      html { scroll-padding-top: 0; }
+      .menu-btn { display: inline-flex; }
+      .nav-links {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin-top: 4px;
+        padding-top: 4px;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+      }
+      .topbar.open .nav-links { display: flex; }
+      .nav-links a {
+        padding: 10px 6px;
+        border-radius: 6px;
+      }
+      .nav-links a:hover { background: var(--brand-dark); text-decoration: none; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .card { padding: 18px; }
+      .hero h1 { font-size: 1.45rem; }
+      .nav-links { gap: 10px; font-size: 0.84rem; }
+    }
+  </style>
 </head>
 <body>
-<nav class="nav" aria-label="주요 메뉴"><div class="wrap">
-<a class="brand" href="/">귀로 듣는 엔클렉스 노트</a>
-<a href="/quiz/">무료 연습문제</a>
-<a href="/notes/">요약노트</a>
-<a href="https://blog.naver.com/nclexnote">블로그 <span aria-hidden="true">↗</span></a>
-<a href="https://www.youtube.com/@%EA%B7%80%EB%A1%9C%EB%93%A3%EB%8A%94%EC%97%94%ED%81%B4%EB%A0%89%EC%8A%A4">유튜브 <span aria-hidden="true">↗</span></a>
-</div></nav>
-<main>
-<section class="hero" aria-labelledby="headline">
-<div class="wrap">
-<div class="intro">
-<p class="kicker">한국 간호사를 위한 NCLEX 학습 노트</p>
-<h1 id="headline">출퇴근길엔 귀로 듣고,<br>쉬는 시간엔 한 문제</h1>
-<p>영어로 풀고 한국어로 이해해요. 응시 서류는 공식 안내와 확인일을 보며 한 단계씩 준비할 수 있어요.</p>
-<a class="action" href="/quiz/">무료 연습문제 풀기 <span aria-hidden="true">&nbsp;→</span></a>
-<a class="action line" href="/notes/">요약노트 보기 <span aria-hidden="true">&nbsp;→</span></a>
-</div>
-<div class="quiz">
-<div class="qtop">
-<h2>바로 풀어보는 예시 문제</h2>
-<span class="sub">감염관리</span>
-<div class="seg" role="group" aria-label="문제 언어 고르기">
-<button type="button" data-lang="ko" aria-pressed="true">한글</button>
-<button type="button" data-lang="en" aria-pressed="false">English</button>
-</div>
-</div>
-<fieldset id="sample-question">
-<legend id="stem">폐결핵이 의심되는 환자가 입원했어요. 어떤 격리 주의를 적용할까요?</legend>
-<div id="opts"></div>
-</fieldset>
-<div class="feedback" id="sample-feedback" role="status" aria-live="polite"></div>
-<a class="action" id="sample-more" href="/quiz/" hidden>이런 문제 더 풀기 <span aria-hidden="true">&nbsp;→</span></a>
-<noscript><details><summary>정답과 해설 보기</summary><p>정답은 공기주의(N95 마스크 + 음압 격리실)예요. 결핵균은 아주 작은 입자에 실려 공기 중에 오래 떠다녀서 일반 마스크로는 막지 못해요.</p></details></noscript>
-<small>귀로 듣는 엔클렉스 노트가 직접 만든 연습문제예요. 실제 시험 문항이 아니에요.</small>
-</div>
-</div>
-</section>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="/">
+        <span>RNWorld</span>
+        <span class="logo-badge">학습 노트</span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="주요 메뉴">
+        <a href="/quiz/">무료 퀴즈</a>
+        <a href="https://blog.naver.com/nclexnote" target="_blank" rel="noopener noreferrer">요약·서류</a>
+        <a href="https://www.youtube.com/@%EA%B7%80%EB%A1%9C%EB%93%A3%EB%8A%94%EC%97%94%ED%81%B4%EB%A0%89%EC%8A%A4" target="_blank" rel="noopener noreferrer">오디오</a>
+        <!-- 아래 #kakao-openchat 부분을 실제 카카오톡 오픈채팅 주소로 바꾸세요 -->
+        <a href="#kakao-openchat">공부방</a>
+      </nav>
+      <div class="size-ctrl" role="group" aria-label="글자 크기 조절">
+        <button type="button" data-size="sm" aria-pressed="false">작게</button>
+        <button type="button" data-size="md" aria-pressed="true">보통</button>
+        <button type="button" data-size="lg" aria-pressed="false">크게</button>
+      </div>
+      <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks" aria-label="메뉴 열기">
+        <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card hero" aria-labelledby="hero-title">
+      <div class="meta-row">
+        <span class="pill">무료 연습문제 공개</span>
+        <span class="pill">영어 문제 · 한국어 해설</span>
+      </div>
+      <h1 id="hero-title">귀로 듣는 엔클렉스 노트</h1>
+      <p>
+        출퇴근길엔 귀로 듣고, 쉬는 시간엔 한 문제.<br>
+        영어로 풀고 한국어로 이해하며, 응시 서류는 공식 안내와 확인일을 보며 한 단계씩 준비할 수 있어요.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/quiz/">무료 연습문제 풀기 →</a>
+        <a class="btn btn-outline" href="https://blog.naver.com/nclexnote" target="_blank" rel="noopener noreferrer">블로그 요약·서류 보기 ↗</a>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="sample-title">
+      <div class="sec-head">
+        <div>
+          <h2 class="sec-title" id="sample-title">바로 풀어보는 1분 예시 문제</h2>
+          <p class="sec-sub">보기를 누르면 바로 채점과 한국어 해설이 열려요.</p>
+        </div>
+        <div class="lang-seg" role="group" aria-label="문제 언어 전환">
+          <button type="button" id="btnKo" aria-pressed="true">한글</button>
+          <button type="button" id="btnEn" aria-pressed="false">English</button>
+        </div>
+      </div>
+
+      <div class="q-meta">
+        <span class="q-tag">감염관리</span>
+        <span>결핵 격리 주의</span>
+      </div>
+      <p class="q-stem" id="qStem">폐결핵이 의심되는 환자가 입원했어요. 간호사가 적용해야 할 격리 주의는 무엇인가요?</p>
+
+      <div class="opts" id="optsList">
+        <button type="button" class="opt" data-idx="0">
+          <span class="opt-num">1</span>
+          <span class="opt-body">
+            <span class="opt-text" data-ko="표준주의만 적용한다" data-en="Standard precautions only">표준주의만 적용한다</span>
+            <span class="opt-note">모든 환자에게 하는 기본 수준으로, 결핵에는 부족해요.</span>
+          </span>
+        </button>
+        <button type="button" class="opt" data-idx="1">
+          <span class="opt-num">2</span>
+          <span class="opt-body">
+            <span class="opt-text" data-ko="접촉주의 (가운과 장갑 착용)" data-en="Contact precautions (gown and gloves)">접촉주의 (가운과 장갑 착용)</span>
+            <span class="opt-note">손·물건으로 옮는 균(MRSA 등)에 적용해요.</span>
+          </span>
+        </button>
+        <button type="button" class="opt" data-idx="2">
+          <span class="opt-num">3</span>
+          <span class="opt-body">
+            <span class="opt-text" data-ko="비말주의 (수술용 마스크 착용)" data-en="Droplet precautions (surgical mask)">비말주의 (수술용 마스크 착용)</span>
+            <span class="opt-note">큰 침방울로 옮는 병(인플루엔자 등)에 적용해요.</span>
+          </span>
+        </button>
+        <button type="button" class="opt" data-idx="3">
+          <span class="opt-num">4</span>
+          <span class="opt-body">
+            <span class="opt-text" data-ko="공기주의 (N95 마스크 + 음압 격리실)" data-en="Airborne precautions (N95 respirator and negative-pressure room)">공기주의 (N95 마스크 + 음압 격리실)</span>
+            <span class="opt-note">정답 — 결핵균은 공기 중에 오래 떠다녀 N95와 음압 격리실이 필요해요.</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="exp-box" id="expBox" role="status" aria-live="polite">
+        <div class="exp-verdict" id="expVerdict"></div>
+        <div>
+          <strong>왜?</strong> 결핵균은 아주 작은 입자에 실려 공기 중에 오래 떠다녀요. 일반 마스크로는 막지 못해서 N95 마스크와 공기가 밖으로 새지 않는 음압 격리실이 필요해요.
+        </div>
+        <div class="memo-box">1초 암기: 결핵 = N95 + 음압방!</div>
+        <div class="exp-actions">
+          <button type="button" class="btn btn-outline" id="retryBtn">다시 풀기</button>
+          <a class="btn btn-primary" href="/quiz/">이런 문제 더 풀기 →</a>
+        </div>
+        <p class="exp-foot">개념 확인용으로 직접 만든 예시 문항이에요. 실제 시험 문항은 공개되지 않아요.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="today-title">
+      <div class="sec-head">
+        <h2 class="sec-title" id="today-title">오늘 무엇을 준비할까요?</h2>
+      </div>
+      <div class="grid-3">
+        <article class="mini-card">
+          <div>
+            <span class="step-badge">STEP 01 · 풀기</span>
+            <h3>풀기 · 무료 1분 퀴즈</h3>
+            <p>과목별 연습문제를 바로 풀고 한국어 해설과 1초 암기를 확인해요.</p>
+          </div>
+          <a class="mini-link" href="/quiz/">무료 연습문제 풀기 →</a>
+        </article>
+        <article class="mini-card">
+          <div>
+            <span class="step-badge">STEP 02 · 듣기</span>
+            <h3>듣기 · 이동 중 오디오</h3>
+            <p>출퇴근길과 집안일 중에 한국어로 핵심 개념을 귀로 편하게 복습해요.</p>
+          </div>
+          <a class="mini-link" href="https://www.youtube.com/@%EA%B7%80%EB%A1%9C%EB%93%A3%EB%8A%94%EC%97%94%ED%81%B4%EB%A0%89%EC%8A%A4" target="_blank" rel="noopener noreferrer">유튜브에서 듣기 ↗</a>
+        </article>
+        <article class="mini-card">
+          <div>
+            <span class="step-badge">STEP 03 · 서류</span>
+            <h3>서류 · 공식 안내 정리</h3>
+            <p>뉴욕주 등 응시 절차와 준비 서류를 공식 기관 안내와 확인일과 함께 살펴봐요.</p>
+          </div>
+          <a class="mini-link" href="https://blog.naver.com/nclexnote" target="_blank" rel="noopener noreferrer">블로그에서 서류 안내 보기 ↗</a>
+        </article>
+      </div>
+    </section>
 
 
-<section class="channel" aria-labelledby="channels">
-<div class="wrap">
-<h2 id="channels">오늘 무엇을 준비할까요?</h2>
-<div class="grid">
-<article class="card"><h3>풀기</h3><p>과목별 연습문제를 바로 풀고 한국어 해설을 확인해요.</p><a href="/quiz/">무료 연습문제 풀기 <span aria-hidden="true">&nbsp;→</span></a></article>
-<article class="card"><h3>듣기</h3><p>이동 중에 한국어로 핵심 개념을 복습해요.</p><a href="https://www.youtube.com/@%EA%B7%80%EB%A1%9C%EB%93%A3%EB%8A%94%EC%97%94%ED%81%B4%EB%A0%89%EC%8A%A4">유튜브에서 듣기 <span aria-hidden="true">&nbsp;↗</span></a></article>
-<article class="card"><h3>서류</h3><p>응시 절차와 준비할 서류를 공식 안내와 함께 확인해요.</p><a href="https://blog.naver.com/nclexnote">블로그에서 서류 안내 보기 <span aria-hidden="true">&nbsp;↗</span></a></article>
-</div>
-</div>
-</section>
+    <section class="banner" id="kakao-openchat" aria-labelledby="news-title">
+      <div>
+        <h2 id="news-title">새 자료 소식 받기 · 카카오톡 공부방</h2>
+        <p>
+          뉴욕주 서류 준비팩과 오디오·원고 묶음을 준비하고 있어요. 새 자료가 열리면 공부방에서 가장 먼저 알려 드리고, 틀린 내용 제보도 여기로 받아요.
+        </p>
+      </div>
+      <a class="btn btn-primary" href="https://open.kakao.com/o/gJbIrbXi" target="_blank" rel="noopener noreferrer">카카오톡 공부방 들어가기 ↗</a>
+    </section>
 
-<section class="callout" aria-labelledby="signup-heading">
-<div class="wrap">
-<h2 id="signup-heading">새 자료 소식 받기</h2>
-<p>새 연습문제와 요약노트가 올라오면 카카오톡 공부방에서 가장 먼저 알려 드려요. 틀린 내용 제보도 여기로 주세요.</p>
-<!-- 무료 가입 페이지가 생기면 아래 주소와 문구를 그 페이지로 바꾸세요. -->
-<a class="action" id="signup-link" href="https://open.kakao.com/o/gJbIrbXi">카카오톡 공부방 들어가기</a>
-</div>
-</section>
+    <section aria-labelledby="faq-title">
+      <div class="sec-head">
+        <h2 class="sec-title" id="faq-title">자주 묻는 질문</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>연습문제는 무료인가요?</summary>
+          <p>네. 공개된 연습문제는 누구나 바로 풀고 한국어 해설을 확인할 수 있어요.</p>
+        </details>
+        <details class="faq-item">
+          <summary>서류 준비팩은 어느 주 기준인가요?</summary>
+          <p>첫 준비팩은 뉴욕주 기준으로 준비하고 있어요. 다른 주에 신청한다면 해당 주 면허 기관(BON)의 공식 안내를 확인해 주세요.</p>
+        </details>
+        <details class="faq-item">
+          <summary>문제는 실제 시험에 나온 건가요?</summary>
+          <p>아니요. 실제 NCLEX 문항은 비공개예요. 여기 문제는 공개된 테스트 플랜과 간호학 개념을 바탕으로 직접 만든 창작 연습문제예요.</p>
+        </details>
+        <details class="faq-item">
+          <summary>틀린 내용을 발견하면 어떻게 하나요?</summary>
+          <p>카카오톡 공부방에 알려 주세요. 공식 자료로 다시 확인한 뒤 고치고 확인한 날짜를 새로 적어요.</p>
+        </details>
+      </div>
+    </section>
+  </main>
 
-<section aria-labelledby="resources">
-<div class="wrap">
-<h2 id="resources">학습 자료</h2>
-<div class="grid">
-<article class="card"><h3>연습문제</h3><p>과목별로 풀고 한국어 해설과 1초 암기로 정리해요.</p><a href="/quiz/">풀러 가기 <span aria-hidden="true">&nbsp;→</span></a></article>
-<article class="card"><h3>요약노트</h3><p>주제별 핵심만 짧게 읽고, 바로 이어서 문제를 풀어요.</p><a href="/notes/">읽으러 가기 <span aria-hidden="true">&nbsp;→</span></a></article>
-<article class="card"><h3>서류·제도 안내</h3><p>응시 절차와 준비 서류를 공식 안내와 확인일을 적어 정리해요.</p><a href="https://blog.naver.com/nclexnote">블로그에서 보기 <span aria-hidden="true">&nbsp;↗</span></a></article>
-</div>
-<!-- 상품 안내 주소를 받으면 아래 배너의 주소와 문구를 그 페이지로 바꾸세요. -->
-<div class="soon">
-<p><strong>서류 준비팩</strong>과 <strong>오디오·원고 묶음</strong>을 준비하고 있어요. 열리면 공부방에서 가장 먼저 알려 드려요.</p>
-<a class="action" href="https://open.kakao.com/o/gJbIrbXi">열리면 알림 받기</a>
-</div>
-</div>
-</section>
+  <footer>
+    <div class="footer-inner">
+      <strong>귀로 듣는 엔클렉스 노트 · RNWorld</strong>
+      <!-- 문제를 더하거나 해설을 고친 날 이 날짜를 바꿔 주세요 (퀴즈 페이지 바닥의 "문제 확인" 날짜와 맞추면 돼요) -->
+      <span>연습문제 최종 업데이트 2026-11-18</span>
+      <span>본 사이트는 NCSBN·Pearson VUE 및 특정 문제은행 업체와 무관한 개인 학습 사이트이며, 모든 연습문제는 직접 제작했습니다.</span>
+      <span>학습 보조 자료이며 서류와 규정은 바뀔 수 있으니, 실제 신청 전 반드시 공식 기관 사이트에서 최신 내용을 확인해 주세요.</span>
+    </div>
+  </footer>
 
-<section aria-labelledby="faq">
-<div class="wrap">
-<h2 id="faq">자주 묻는 질문</h2>
-<details><summary>연습문제는 무료인가요?</summary><p>네. 공개 연습문제는 누구나 바로 풀고 한국어 해설을 확인할 수 있어요.</p></details>
-<details><summary>서류 준비팩은 어느 주 기준인가요?</summary><p>첫 준비팩은 뉴욕주 기준으로 준비하고 있어요. 다른 주에 신청한다면 해당 면허 기관의 안내를 확인해 주세요.</p></details>
-<details><summary>문제는 실제 시험에 나온 건가요?</summary><p>아니요. 실제 NCLEX 문항은 공개되지 않아요. 여기 문제는 개념을 바탕으로 직접 만든 연습문제예요.</p></details>
-<details><summary>틀린 내용을 발견하면 어떻게 하나요?</summary><p>카카오톡 공부방에 알려 주세요. 공식 자료로 다시 확인한 뒤 고치고 확인한 날짜를 새로 적어요.</p></details>
-</div>
-</section>
-</main>
-<footer aria-labelledby="business">
-<div class="wrap">
-<h2 id="business">귀로 듣는 엔클렉스 노트</h2>
-<p>학습 보조 자료예요. 서류와 규정은 바뀔 수 있으니 실행 전에 공식 사이트에서 확인해 주세요.</p>
-<p>방문 통계: 방문 수와 누른 횟수만 세요(Umami · 구글 애널리틱스). 구글 애널리틱스는 다시 오신 분을 가리려고 쿠키(_ga)를 써요. 이름·입력한 내용은 보내지 않아요.</p>
-<p>개인이 만들어 운영하는 학습 사이트예요. 시험 시행 기관이나 다른 학습 서비스와 관련이 없고, 문항과 해설은 모두 직접 만들었어요.</p>
-<!-- 유료 판매를 시작하기 전에 아래 주석을 풀고 실제 사업자 정보로 채우세요. -->
-<!--
-<dl>
-<dt>상호</dt><dd>실제 상호</dd>
-<dt>대표자</dt><dd>실제 대표자명</dd>
-<dt>사업자등록번호</dt><dd>실제 등록번호</dd>
-<dt>통신판매업 신고번호</dt><dd>해당 시 실제 신고번호</dd>
-<dt>사업장 주소</dt><dd>실제 주소</dd>
-<dt>문의</dt><dd>실제 연락처</dd>
-</dl>
--->
-</div>
-</footer>
-<script>
-(function(){
-  // 예시 문제 한 문항 — /quiz/ 의 #002 와 같은 내용이에요
-  var X={
-    q:"폐결핵이 의심되는 환자가 입원했어요. 어떤 격리 주의를 적용할까요?",
-    eq:"A client is admitted with suspected pulmonary tuberculosis. Which precaution should the nurse implement?",
-    o:["표준주의만 적용","접촉주의 (가운과 장갑)","비말주의 (수술용 마스크)","공기주의 (N95 마스크 + 음압 격리실)"],
-    eo:["Standard precautions only","Contact precautions with gown and gloves","Droplet precautions with a surgical mask","Airborne precautions with an N95 respirator and a negative-pressure room"],
-    a:3,
-    why:"결핵균은 아주 작은 입자에 실려 공기 중에 오래 떠다녀요. 일반 마스크로는 막지 못해서 N95 마스크와 공기가 밖으로 새지 않는 음압 격리실이 필요해요.",
-    m:"결핵 = N95 + 음압방!"
-  };
-  var lang="ko", picked=null;
-  var stem=document.getElementById("stem"), opts=document.getElementById("opts"),
-      fb=document.getElementById("sample-feedback"), more=document.getElementById("sample-more");
-  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
-  function draw(){
-    var en=lang==="en";
-    stem.textContent=en?X.eq:X.q;
-    if(en){stem.setAttribute("lang","en");}else{stem.removeAttribute("lang");}
-    var list=en?X.eo:X.o, h="";
-    for(var i=0;i<list.length;i++){
-      var cls="option", mk="";
-      if(picked!==null){
-        if(i===X.a){cls+=" right"; mk='<em class="mk ok">정답</em><br>';}
-        else if(i===picked){cls+=" wrong"; mk='<em class="mk no">내가 고른 답</em><br>';}
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const sizeBtns = document.querySelectorAll(".size-ctrl button");
+      let savedSize = null;
+      try { savedSize = localStorage.getItem("rnw_size"); } catch (e) {}
+      if (savedSize && ["sm", "md", "lg"].includes(savedSize)) {
+        root.setAttribute("data-size", savedSize);
+        sizeBtns.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.size === savedSize)));
       }
-      h+='<button type="button" class="'+cls+'" data-i="'+i+'"'+(picked!==null?" disabled":"")+'>'+
-         '<b>'+(i+1)+'</b><span>'+mk+'<span'+(en?' lang="en"':'')+'>'+esc(list[i])+'</span></span></button>';
-    }
-    opts.innerHTML=h;
-    if(picked!==null){
-      var ok=picked===X.a;
-      fb.innerHTML='<span class="v '+(ok?"ok":"no")+'">'+(ok?"맞았어요.":"아쉬워요. ‘정답’ 표시가 붙은 보기가 정답이에요.")+'</span>'+
-                   '<span><b>왜?</b> '+esc(X.why)+'</span><span class="memo">1초 암기: '+esc(X.m)+'</span>';
-      more.hidden=false;
-    }
-  }
-  opts.addEventListener("click",function(e){
-    var b=e.target.closest(".option");
-    if(b&&picked===null){ picked=+b.dataset.i; draw(); }
-  });
-  var segs=document.querySelectorAll("[data-lang]");
-  for(var k=0;k<segs.length;k++){
-    segs[k].addEventListener("click",function(e){
-      lang=e.currentTarget.dataset.lang;
-      for(var j=0;j<segs.length;j++) segs[j].setAttribute("aria-pressed",segs[j].dataset.lang===lang);
-      draw();
-    });
-  }
-  draw();
+      sizeBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const s = btn.dataset.size;
+          root.setAttribute("data-size", s);
+          try { localStorage.setItem("rnw_size", s); } catch (e) {}
+          sizeBtns.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+        });
+      });
 
-  // 공부방·블로그·유튜브 링크 누름 세기 (Umami + 구글 애널리틱스)
-  function tk(n){
-    try{ if(window.umami&&umami.track) umami.track(n); }catch(_){}
-    try{ if(window.gtag) gtag("event",n); }catch(_){}
-  }
-  document.addEventListener("click",function(e){
-    var a=e.target.closest&&e.target.closest("a[href]"); if(!a) return;
-    if(a.href.indexOf("open.kakao.com")>=0) tk("kakao_click");
-    else if(a.href.indexOf("blog.naver.com")>=0) tk("blog_click");
-    else if(a.href.indexOf("youtube.com")>=0) tk("youtube_click");
-    else if(a.getAttribute("href")==="/quiz/") tk("home_to_quiz");
-  });
-})();
-</script>
+      const stemEl = document.getElementById("qStem");
+      const btnKo = document.getElementById("btnKo");
+      const btnEn = document.getElementById("btnEn");
+      const optTexts = document.querySelectorAll(".opt-text");
+      const stems = {
+        ko: "폐결핵이 의심되는 환자가 입원했어요. 간호사가 적용해야 할 격리 주의는 무엇인가요?",
+        en: "A client is admitted with suspected pulmonary tuberculosis. Which precaution should the nurse implement?"
+      };
+
+      function setLang(lang) {
+        stemEl.textContent = stems[lang];
+        stemEl.lang = lang;
+        optTexts.forEach(el => {
+          el.textContent = el.dataset[lang];
+          el.lang = lang;
+        });
+        btnKo.setAttribute("aria-pressed", String(lang === "ko"));
+        btnEn.setAttribute("aria-pressed", String(lang === "en"));
+      }
+      btnKo.addEventListener("click", () => setLang("ko"));
+      btnEn.addEventListener("click", () => setLang("en"));
+
+      // 공부방·블로그·유튜브 링크 누름 세기 (Umami + 구글 애널리틱스)
+      function tk(name) {
+        try { if (window.umami && umami.track) umami.track(name); } catch (e) {}
+        try { if (window.gtag) gtag("event", name); } catch (e) {}
+      }
+      document.addEventListener("click", function (e) {
+        const a = e.target.closest && e.target.closest("a[href]");
+        if (!a) return;
+        if (a.href.indexOf("open.kakao.com") >= 0) tk("kakao_click");
+        else if (a.href.indexOf("blog.naver.com") >= 0) tk("blog_click");
+        else if (a.href.indexOf("youtube.com") >= 0) tk("youtube_click");
+        else if (a.getAttribute("href") === "/quiz/") tk("home_to_quiz");
+      });
+
+      // 휴대폰 메뉴 열고 닫기
+      const topbar = document.querySelector(".topbar");
+      const menuBtn = document.getElementById("menuBtn");
+      if (menuBtn && topbar) {
+        menuBtn.addEventListener("click", function () {
+          const open = topbar.classList.toggle("open");
+          menuBtn.setAttribute("aria-expanded", String(open));
+          menuBtn.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+        });
+        // 메뉴에서 어디론가 가면 저절로 닫히게
+        document.getElementById("navLinks").addEventListener("click", function (e) {
+          if (e.target.closest("a")) {
+            topbar.classList.remove("open");
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.setAttribute("aria-label", "메뉴 열기");
+          }
+        });
+        // Esc 키로도 닫히게
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && topbar.classList.contains("open")) {
+            topbar.classList.remove("open");
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.setAttribute("aria-label", "메뉴 열기");
+            menuBtn.focus();
+          }
+        });
+      }
+
+      const correctIdx = 3;
+      const opts = document.querySelectorAll("#optsList .opt");
+      const expBox = document.getElementById("expBox");
+      const expVerdict = document.getElementById("expVerdict");
+      let answered = false;
+
+      opts.forEach(opt => {
+        opt.addEventListener("click", () => {
+          if (answered) return;
+          answered = true;
+          const picked = Number(opt.dataset.idx);
+          opts.forEach(b => {
+            b.disabled = true;
+            b.classList.add("show-note");
+            const idx = Number(b.dataset.idx);
+            if (idx === correctIdx) b.classList.add("is-ok");
+            else if (idx === picked) b.classList.add("is-no");
+          });
+          if (picked === correctIdx) {
+            expVerdict.textContent = "맞았어요! 정답은 4번 공기주의(N95 + 음압 격리실)입니다.";
+            expVerdict.className = "exp-verdict ok";
+          } else {
+            expVerdict.textContent = "아쉬워요. 정답은 4번 공기주의(N95 + 음압 격리실)입니다.";
+            expVerdict.className = "exp-verdict no";
+          }
+          expBox.classList.add("open");
+        });
+      });
+
+      // 다시 풀기
+      const retryBtn = document.getElementById("retryBtn");
+      if (retryBtn) {
+        retryBtn.addEventListener("click", function () {
+          answered = false;
+          opts.forEach(function (b) {
+            b.disabled = false;
+            b.classList.remove("show-note", "is-ok", "is-no");
+          });
+          expBox.classList.remove("open");
+          expVerdict.textContent = "";
+          opts[0].focus();
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
